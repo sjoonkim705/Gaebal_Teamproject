@@ -956,6 +956,7 @@ MonoBehaviour:
   isPiercing: 0
   direction: {x: 0, y: 0}
   bullet_prefab: {fileID: 8403677243194927541, guid: 4d5dad43e65805f4faf29dac0b43e40b, type: 3}
+  WType: 0
 --- !u!1 &1569201113
 GameObject:
   m_ObjectHideFlags: 0
@@ -1462,6 +1463,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InputVec: {x: 0, y: 0}
+  scanner: {fileID: 0}
   Speed: 3
   EnabledWeapons: []
 --- !u!114 &2009144858
