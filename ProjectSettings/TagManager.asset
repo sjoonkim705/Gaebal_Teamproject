@@ -3,6 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
+<<<<<<< HEAD
+  tags: []
+=======
   tags:
   - Area
   - Ground
@@ -10,6 +13,7 @@ TagManager:
   - BioFuel
   - Bullet
   - Item_Magnet
+>>>>>>> 0efc8c0f973b38aa22c30921efdf41e604318030
   layers:
   - Default
   - TransparentFX
@@ -17,11 +21,11 @@ TagManager:
   - 
   - Water
   - UI
-  - Enemy
-  - Bullet
-  - Player
-  - Item
-  - Ground
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -47,6 +51,8 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+<<<<<<< HEAD
+=======
   - name: Map
     uniqueID: 124111191
     locked: 0
@@ -59,3 +65,4 @@ TagManager:
   - name: Bullet
     uniqueID: 3443933519
     locked: 0
+>>>>>>> 0efc8c0f973b38aa22c30921efdf41e604318030
