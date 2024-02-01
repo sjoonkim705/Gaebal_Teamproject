@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
             if (bellet.WType == WeaponType.Kunai) 
             {
                 Health -= 1;
-                Debug.Log("hi");
+                Debug.Log($"체력{Health}");
             }
             if (Health <= 0) 
             {
@@ -67,4 +67,5 @@ public class Enemy : MonoBehaviour
             Destroy(Collider.gameObject);
         }
     }
+  
 }

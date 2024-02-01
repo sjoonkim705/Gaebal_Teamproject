@@ -101,7 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
-  Health: 2
+  Health: 5
   target: {fileID: 0}
 --- !u!114 &-1588098138342646181
 MonoBehaviour:
