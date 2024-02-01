@@ -10,9 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 6797312562183297933}
   - component: {fileID: 5069351966257252789}
+<<<<<<< HEAD
+  - component: {fileID: 3676819014773018020}
+=======
   - component: {fileID: 5917643027106028800}
   - component: {fileID: -5341901503128639818}
   - component: {fileID: -8580435872065944953}
+>>>>>>> 2092ae9b19b3e6d6e806dfb9e9d44ec07cf62f9a
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -87,7 +91,11 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+--- !u!114 &3676819014773018020
+=======
 --- !u!114 &5917643027106028800
+>>>>>>> 2092ae9b19b3e6d6e806dfb9e9d44ec07cf62f9a
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -102,6 +110,8 @@ MonoBehaviour:
   Speed: 1
   Health: 2
   target: {fileID: 0}
+<<<<<<< HEAD
+=======
 --- !u!70 &-5341901503128639818
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,3 +174,4 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+>>>>>>> 2092ae9b19b3e6d6e806dfb9e9d44ec07cf62f9a
