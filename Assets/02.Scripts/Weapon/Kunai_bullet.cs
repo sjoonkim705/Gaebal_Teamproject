@@ -11,13 +11,10 @@ public class Kunai_bullet : MonoBehaviour
     {
         dir = Target.transform.position - GameManager.Instance.player.transform.position;
         dir = dir.normalized;
-        float radianTarget = Mathf.Atan2(dir.y, dir.x);
+        float radianTarget = Mathf.Atan2(dir.y, dir.x); // 총알이 적 방향을 향함
 
         float degreeTarget = radianTarget * Mathf.Rad2Deg;
         transform.rotation = UnityEngine.Quaternion.Euler(new Vector3(0, 0, degreeTarget));
-
-
-
 
     }
 
@@ -26,4 +23,12 @@ public class Kunai_bullet : MonoBehaviour
         Vector3 newPos = dir * Speed * Time.fixedDeltaTime;
         transform.position += newPos;
     }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Area"))   // 총알이 영역 밖으로 나가면 destroy
+        {
+            Destroy(this.gameObject);
+        }
+    }
+
 }
