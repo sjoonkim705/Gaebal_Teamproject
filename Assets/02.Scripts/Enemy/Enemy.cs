@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     }
 
     
-    void Update()
+    void FixedUpdate()
     {
         EnemyMove();
 
@@ -43,7 +43,9 @@ public class Enemy : MonoBehaviour
         dir = target.transform.position - this.transform.position;
         dir = dir.normalized;
 
-        transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
+        // transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = dir * Speed;// * Time.deltaTime;
+
     }
     private void OnTriggerEnter2D(Collider2D Collider)
     {
