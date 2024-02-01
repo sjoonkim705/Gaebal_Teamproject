@@ -48,6 +48,7 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy = Instantiate(EnemyPrefab);
 
+
             enemy.transform.position = EnemySpawn.transform.position;
         }
         
