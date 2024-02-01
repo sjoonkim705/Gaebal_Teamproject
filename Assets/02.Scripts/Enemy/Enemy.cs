@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     public GameObject BioFuel_Blue;
     public GameObject BioFuel_Yellow;
 
-    float makebio;
+    
 
     void Start()
     {
@@ -52,14 +52,12 @@ public class Enemy : MonoBehaviour
         {
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
 
-            // Destroy(gameObject);
-            // Destroy(Collider.gameObject);
-            Debug.Log("qwe");
+            // Debug.Log("qwe");
 
             if (bellet.WType == WeaponType.Kunai) 
             {
                 Health -= 1;
-                Debug.Log($"체력{Health}");
+                // Debug.Log($"체력{Health}");
             }
             if (Health <= 0) 
             {
@@ -72,28 +70,26 @@ public class Enemy : MonoBehaviour
     }
     public void MakeBioFuel() 
     {
-        
+        int makebio = Random.Range(0, 10);
+        Debug.Log(makebio);
 
-        makebio = Random.Range(0, 100);
-
-        if (makebio <= 50)
+        if (makebio <= 6)
         {
             GameObject biofuel = Instantiate(BioFuel_Green);
 
             biofuel.transform.position = this.transform.position;
         }
-        else if (makebio <= 30)
+        else if (makebio <= 8)
         {
             GameObject biofuel = Instantiate(BioFuel_Blue);
 
             biofuel.transform.position = this.transform.position;
         }
-        else if(makebio <= 20)
+        else
         {
             GameObject biofuel = Instantiate(BioFuel_Yellow);
 
             biofuel.transform.position = this.transform.position;
         }
     }
-  
 }
