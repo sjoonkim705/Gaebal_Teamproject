@@ -18,6 +18,12 @@ public class Enemy : MonoBehaviour
 
     SpriteRenderer EnemySpriter;
 
+    public GameObject BioFuel_Green;
+    public GameObject BioFuel_Blue;
+    public GameObject BioFuel_Yellow;
+
+    
+
     void Start()
     {
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
@@ -27,6 +33,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         EnemyMove();
+
+        EnemySpriter.flipX = target.transform.position.x > this.transform.position.x; // 2번
     }
     void EnemyMove() // 1번
     {
@@ -37,12 +45,6 @@ public class Enemy : MonoBehaviour
 
         transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
     }
-
-    void LateUpdate() // 2번
-    {
-        EnemySpriter.flipX = target.transform.position.x > this.transform.position.x;
-    }
-
     private void OnTriggerEnter2D(Collider2D Collider)
     {
         
@@ -50,21 +52,44 @@ public class Enemy : MonoBehaviour
         {
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
 
-            // Destroy(gameObject);
-            // Destroy(Collider.gameObject);
-            Debug.Log("qwe");
+            // Debug.Log("qwe");
 
             if (bellet.WType == WeaponType.Kunai) 
             {
                 Health -= 1;
-                Debug.Log("hi");
+                // Debug.Log($"체력{Health}");
             }
             if (Health <= 0) 
             {
                 
                 Destroy(gameObject);
+                MakeBioFuel();
             }
             Destroy(Collider.gameObject);
+        }
+    }
+    public void MakeBioFuel() 
+    {
+        int makebio = Random.Range(0, 10);
+        Debug.Log(makebio);
+
+        if (makebio <= 6)
+        {
+            GameObject biofuel = Instantiate(BioFuel_Green);
+
+            biofuel.transform.position = this.transform.position;
+        }
+        else if (makebio <= 8)
+        {
+            GameObject biofuel = Instantiate(BioFuel_Blue);
+
+            biofuel.transform.position = this.transform.position;
+        }
+        else
+        {
+            GameObject biofuel = Instantiate(BioFuel_Yellow);
+
+            biofuel.transform.position = this.transform.position;
         }
     }
 }

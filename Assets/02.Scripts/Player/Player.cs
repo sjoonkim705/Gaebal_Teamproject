@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public int PlayerMaxHealth;
 
     public int PlayerLevel;
+    private float enemyCollisionTimer;
 
     private SpriteRenderer _playerSr = null;
     WeaponType WType;
@@ -20,7 +21,7 @@ public class Player : MonoBehaviour
 
     public void DecreasePlayerHealth(int amount)
     {
-        if (amount <=0)
+        if (amount <=0 || _playerHealth <=0)
         {
             return;
         }
@@ -58,22 +59,46 @@ public class Player : MonoBehaviour
             LevelCount = 0;
             Debug.Log($"LevelUp : Level = {PlayerLevel}");
         }
+        if (_playerHealth <= 0)
+        {
+            DiePlayer();
+        }
 
     }
     private void LateUpdate()
     {
         PlayerMove();
-
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.collider.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             DecreasePlayerHealth(10);
-            Debug.Log("Health Decreased");
+            //Debug.Log("Health Decreased");
         }
+        enemyCollisionTimer = 0;
+
+    }
+    private void OnTriggerStay2D(Collider2D other)
+    {
+/*        Debug.Log(other.tag);
+
+        if (other.CompareTag("Enemy"))
+        {
+            enemyCollisionTimer += Time.fixedDeltaTime;
+            if (enemyCollisionTimer > 0.2f)
+            {
+                DecreasePlayerHealth(10);
+               // Debug.Log($"{_playerHealth}");
+                enemyCollisionTimer = 0;
+            }
+        }*/
     }
 
+    private void DiePlayer()
+    {
+
+    }
     private void PlayerMove()
     {
         Vector2 nextPos = InputVec * Speed * Time.deltaTime;
@@ -82,7 +107,7 @@ public class Player : MonoBehaviour
         {
            _playerSr.flipX = true;
         }
-        else
+        else if (InputVec.x > 0)
         {
             _playerSr.flipX = false;
         }
