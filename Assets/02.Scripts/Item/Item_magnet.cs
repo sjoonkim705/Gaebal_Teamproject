@@ -9,13 +9,9 @@ public class Item_magnet : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            Debug.Log($"Alpha1 키 입력 감지");
-        }
-
         // 플레이어를 따라오게끔 업데이트
         FollowPlayer();
+
     }
 
 
@@ -36,5 +32,8 @@ public class Item_magnet : MonoBehaviour
                 {
                     Debug.LogWarning("플레이어를 찾을 수 없음");
                 }
+    }
+
+
     }
 }
