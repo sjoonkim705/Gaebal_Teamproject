@@ -51,7 +51,7 @@ public class Weapon : MonoBehaviour
         _timer += Time.deltaTime;
         if (_timer > CoolTime && Target != null)
         {
-            Debug.Log($"{Target.transform.position.x} {Target.transform.position.y}");
+            //Debug.Log($"{Target.transform.position.x} {Target.transform.position.y}");
             Fire();
             _timer = 0;
         }

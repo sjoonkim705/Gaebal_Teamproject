@@ -5,10 +5,12 @@ using UnityEngine;
 public class Kunai_bullet : MonoBehaviour
 {
     public Vector2 dir;
-    public float Speed = 3f;
+    public float Speed = 5f;
     public Transform Target;
+    public WeaponType WType;
     void Start()
     {
+        WType = WeaponType.Kunai;
         dir = Target.transform.position - GameManager.Instance.player.transform.position;
         dir = dir.normalized;
         float radianTarget = Mathf.Atan2(dir.y, dir.x); // 총알이 적 방향을 향함
