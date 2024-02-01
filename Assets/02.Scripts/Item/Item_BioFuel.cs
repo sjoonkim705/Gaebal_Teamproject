@@ -28,7 +28,7 @@ public class Item_BioFuel : MonoBehaviour
     }
     void ComeBioFuel()
     {
-        /**
+        
         GameObject bioPos = GameObject.Find("Item_Magnet");
         if (bioPos != null)
         {
@@ -46,9 +46,9 @@ public class Item_BioFuel : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("마그넷을 찾을 수 없음");
+            // Debug.LogWarning("마그넷을 찾을 수 없음");
         }
-        **/
+       
     }
 
 
