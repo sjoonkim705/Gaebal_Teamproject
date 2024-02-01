@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4844509982925555386}
   - component: {fileID: 7156488337479011121}
   m_Layer: 0
-  m_Name: Kunai_bullet
+  m_Name: Bullet_Kunai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
