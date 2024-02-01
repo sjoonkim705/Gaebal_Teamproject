@@ -30,7 +30,7 @@ public class Enemy : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         EnemyMove();
 

@@ -8,11 +8,8 @@ TagManager:
   - Ground
   - Enemy
   - BioFuel
-<<<<<<< HEAD
-  - Item_Magnet
-=======
   - Bullet
->>>>>>> 34b8abfdd0ab57247b413624c3ad04eac29656e1
+  - Item_Magnet
   layers:
   - Default
   - TransparentFX
@@ -56,9 +53,9 @@ TagManager:
   - name: Enemy
     uniqueID: 4121565629
     locked: 0
-  - name: Bullet
-    uniqueID: 3443933519
-    locked: 0
   - name: Player
     uniqueID: 1485197423
+    locked: 0
+  - name: Bullet
+    uniqueID: 3443933519
     locked: 0
