@@ -41,9 +41,13 @@ public class EnemySpawner : MonoBehaviour
 
         _enemyrate = Random.Range(0, 100);
 
-        enemy = Instantiate(EnemyPrefab);
+        if (_enemyrate <= 70) 
+        {
+            enemy = Instantiate(EnemyPrefab);
 
-        enemy.transform.position = EnemySpawn.transform.position;
+            enemy.transform.position = EnemySpawn.transform.position;
+        }
+        
 
     }
 }

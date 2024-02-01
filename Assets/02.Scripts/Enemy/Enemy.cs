@@ -42,4 +42,29 @@ public class Enemy : MonoBehaviour
     {
         EnemySpriter.flipX = target.transform.position.x > this.transform.position.x;
     }
+
+    private void OnTriggerEnter2D(Collider2D Collider)
+    {
+        
+        if (Collider.tag == "Bullet") 
+        {
+            Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
+
+            // Destroy(gameObject);
+            // Destroy(Collider.gameObject);
+            Debug.Log("qwe");
+
+            if (bellet) 
+            {
+                Health -= 1;
+                Debug.Log("hi");
+            }
+            if (Health <= 0) 
+            {
+                
+                Destroy(gameObject);
+            }
+            Destroy(Collider.gameObject);
+        }
+    }
 }
