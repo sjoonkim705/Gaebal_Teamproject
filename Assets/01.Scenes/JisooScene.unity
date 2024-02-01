@@ -1119,7 +1119,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: BioFuel_blue_random_spawner
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6951212068524709697, guid: ef835286b10347b4a801fbb2f09fff1a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -1588,7 +1589,8 @@ MonoBehaviour:
   scanner: {fileID: 0}
   Speed: 3
   LevelCount: 0
-  EnabledWeapons: []
+  PlayerMaxHealth: 0
+  PlayerLevel: 0
 --- !u!114 &2009144858
 MonoBehaviour:
   m_ObjectHideFlags: 0

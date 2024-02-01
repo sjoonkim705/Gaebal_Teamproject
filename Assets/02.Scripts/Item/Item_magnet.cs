@@ -35,5 +35,5 @@ public class Item_magnet : MonoBehaviour
     }
 
 
-    }
 }
+
