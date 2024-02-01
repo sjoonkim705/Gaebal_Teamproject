@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4145310237232508598}
   - component: {fileID: 1275966170497848}
   - component: {fileID: 548665963454346130}
+  - component: {fileID: -1588098138342646181}
   - component: {fileID: 5217438894275236977}
   - component: {fileID: 1685358784727334463}
   m_Layer: 0
@@ -102,6 +103,18 @@ MonoBehaviour:
   Speed: 1
   Health: 2
   target: {fileID: 0}
+--- !u!114 &-1588098138342646181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6678347428769072923}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c324dcfdfdb10c7469a18479f3210ea3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!50 &5217438894275236977
 Rigidbody2D:
   serializedVersion: 4
@@ -158,7 +171,7 @@ CapsuleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.010710835, y: 0.010710925}
