@@ -15,7 +15,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
-        RandomRete();
+        RandomRate();
     }
 
     
@@ -25,7 +25,7 @@ public class EnemySpawner : MonoBehaviour
 
         if (Timer < 0) 
         {
-            RandomRete();
+            RandomRate();
             RandomSpawnTime();
         }
     }
@@ -33,7 +33,7 @@ public class EnemySpawner : MonoBehaviour
     {
         Timer = Random.Range(MinTime, MaxTime);
     }
-    void RandomRete() 
+    void RandomRate() 
     {
         
 
