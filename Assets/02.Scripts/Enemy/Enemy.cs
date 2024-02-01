@@ -54,7 +54,7 @@ public class Enemy : MonoBehaviour
             // Destroy(Collider.gameObject);
             Debug.Log("qwe");
 
-            if (bellet) 
+            if (bellet.WType == WeaponType.Kunai) 
             {
                 Health -= 1;
                 Debug.Log("hi");
