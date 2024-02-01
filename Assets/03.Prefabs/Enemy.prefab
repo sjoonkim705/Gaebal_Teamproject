@@ -100,8 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac50daef861c2004d9b3371c0c2d6879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 1
-  Health: 2
+  Speed: 0.3
+  Health: 1
   target: {fileID: 0}
   BioFuel_Green: {fileID: 8196418416276026524, guid: a278e81712582d349a08a91d359a1dd9, type: 3}
   BioFuel_Blue: {fileID: 7655265004665779348, guid: 212570211c8baca4d8bb2e5bc9e18a7b, type: 3}
@@ -177,6 +177,6 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009658873, y: -0.0082246065}
-  m_Size: {x: 0.34911978, y: 0.64781415}
+  m_Offset: {x: 0.00046873093, y: -0.010522187}
+  m_Size: {x: 0.52832985, y: 0.85919}
   m_Direction: 0

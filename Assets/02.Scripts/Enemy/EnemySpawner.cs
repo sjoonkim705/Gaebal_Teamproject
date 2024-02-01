@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
 
     void Start()
     {
+        
         StartCoroutine(SpawnEnemies());
     }
 
@@ -38,8 +39,6 @@ public class EnemySpawner : MonoBehaviour
     }
     void RandomRate() 
     {
-        
-
         GameObject enemy;
 
         _enemyrate = Random.Range(0, 100);
@@ -48,11 +47,8 @@ public class EnemySpawner : MonoBehaviour
         {
             enemy = Instantiate(EnemyPrefab);
 
-
             enemy.transform.position = EnemySpawn.transform.position;
         }
-        
-
     }
     void DeactivateEnemy() 
     {
@@ -61,7 +57,7 @@ public class EnemySpawner : MonoBehaviour
         {
             if (enemy.activeSelf) 
             {
-            enemy.SetActive(false);
+                enemy.SetActive(false);
             }
         }
     }
@@ -76,6 +72,4 @@ public class EnemySpawner : MonoBehaviour
         DeactivateEnemy();
         yield return new WaitForSeconds(InactiveInterval);
     }
-
-   
 }

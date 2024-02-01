@@ -101,8 +101,10 @@ public class Player : MonoBehaviour
     }
     private void PlayerMove()
     {
-        Vector2 nextPos = InputVec * Speed * Time.deltaTime;
-        transform.position += (Vector3)nextPos;
+        Vector2 nextPos = InputVec.normalized * Speed;// * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = nextPos;
+        //Vector2 nextPos = InputVec * Speed * Time.deltaTime;
+        //transform.position += (Vector3)nextPos;
         if (InputVec.x < 0)
         {
            _playerSr.flipX = true;
