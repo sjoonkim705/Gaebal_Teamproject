@@ -22,15 +22,15 @@ public class Enemy : MonoBehaviour
     public GameObject BioFuel_Blue;
     public GameObject BioFuel_Yellow;
 
-    
+
 
     void Start()
     {
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
     }
 
-    
-    void Update()
+
+    void FixedUpdate()
     {
         EnemyMove();
 
@@ -47,28 +47,29 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D Collider)
     {
-        
-        if (Collider.tag == "Bullet") 
+
+        if (Collider.tag == "Bullet")
         {
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
 
             // Debug.Log("qwe");
 
-            if (bellet.WType == WeaponType.Kunai) 
+            if (bellet.WType == WeaponType.Kunai)
             {
                 Health -= 1;
                 // Debug.Log($"체력{Health}");
             }
-            if (Health <= 0) 
+            if (Health <= 0)
             {
-                
+
                 Destroy(gameObject);
                 MakeBioFuel();
             }
             Destroy(Collider.gameObject);
         }
+        
     }
-    public void MakeBioFuel() 
+    public void MakeBioFuel()
     {
         int makebio = Random.Range(0, 10);
         Debug.Log(makebio);
@@ -92,4 +93,5 @@ public class Enemy : MonoBehaviour
             biofuel.transform.position = this.transform.position;
         }
     }
+   
 }
