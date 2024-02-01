@@ -33,9 +33,9 @@ public class Item_BioFuel : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
-            player.Health += 1;
+            player.LevelCount += 1;
             gameObject.SetActive(false);
-            Debug.Log($"캐릭터 체력 : {player.Health}");
+            Debug.Log($"캐릭터 경험치 : {player.LevelCount}");
         }
 
         else
