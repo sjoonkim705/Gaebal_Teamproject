@@ -56,6 +56,7 @@ public class Player : MonoBehaviour
         {
             PlayerLevel++;
             LevelCount = 0;
+            Debug.Log($"LevelUp : Level = {PlayerLevel}");
         }
 
     }

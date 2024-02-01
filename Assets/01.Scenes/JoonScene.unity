@@ -643,7 +643,7 @@ GameObject:
   m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &827177053
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1131,7 +1131,8 @@ MonoBehaviour:
   scanner: {fileID: 0}
   Speed: 3
   LevelCount: 0
-  EnabledWeapons: []
+  PlayerMaxHealth: 100
+  PlayerLevel: 0
 --- !u!114 &2009144858
 MonoBehaviour:
   m_ObjectHideFlags: 0
