@@ -6,12 +6,19 @@ public class Kunai_bullet : MonoBehaviour
 {
     public Vector2 dir;
     public float Speed = 3f;
-    public Transform target;
+    public Transform Target;
     void Start()
     {
-        target = GetComponentInParent<Scanner>().nearestTarget;
+        dir = Target.transform.position - GameManager.Instance.player.transform.position;
+        dir = dir.normalized;
+        float radianTarget = Mathf.Atan2(dir.y, dir.x);
 
-        
+        float degreeTarget = radianTarget * Mathf.Rad2Deg;
+        transform.rotation = UnityEngine.Quaternion.Euler(new Vector3(0, 0, degreeTarget));
+
+
+
+
     }
 
     void FixedUpdate()
