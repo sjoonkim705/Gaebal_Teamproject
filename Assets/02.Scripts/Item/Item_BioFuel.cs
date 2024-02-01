@@ -23,10 +23,19 @@ public class Item_BioFuel : MonoBehaviour
     {
 
     }
+    void ComeBioFuel()
+    {
+        GameObject biofuel = GameObject.Find("BioFuel");
+        if (biofuel != null)
+        {
+            Vector3 bioPos = biofuel.transform.position;
+            Vector3 comeBio = (bioPos - transform.position).normalized;
+            transform.position += comeBio * Speed * Time.deltaTime;
+            biofuel.SetActive(false);
+        }
 
 
-
-    private void OnTriggerEnter2D(Collider2D collision)
+        private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player") && !collision.CompareTag("Enemy"))
         {
