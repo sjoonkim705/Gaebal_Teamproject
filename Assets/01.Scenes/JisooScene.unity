@@ -625,7 +625,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 823581921}
-  - component: {fileID: 823581920}
+  - component: {fileID: 823581922}
   m_Layer: 0
   m_Name: BioFuel_blue_random_spawner
   m_TagString: Untagged
@@ -633,23 +633,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &823581920
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 823581919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 46deb371160296644bd66f0f1bf6a36d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  BioFuel_blue: {fileID: 7655265004665779348, guid: 3b490352c302f0e4794d0497438be571, type: 3}
-  BioFuel_green: {fileID: 8196418416276026524, guid: 1160410c3cde9844abdadbb95db00d54, type: 3}
-  BioFuel_yellow: {fileID: 0}
-  initialFuelCount: 100
-  poolSize: 1000
 --- !u!4 &823581921
 Transform:
   m_ObjectHideFlags: 0
@@ -665,6 +648,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &823581922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 823581919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46deb371160296644bd66f0f1bf6a36d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  BioFuel_blue: {fileID: 7655265004665779348, guid: 3b490352c302f0e4794d0497438be571, type: 3}
+  BioFuel_green: {fileID: 8196418416276026524, guid: 1160410c3cde9844abdadbb95db00d54, type: 3}
+  BioFuel_yellow: {fileID: 1590291140030563697, guid: 7dcc7b23e29402847a8c49f21cbc00a2, type: 3}
+  initialFuelCount: 999
+  poolSize: 1000
+  spreadRadius: 5
 --- !u!1 &884085430
 GameObject:
   m_ObjectHideFlags: 0
