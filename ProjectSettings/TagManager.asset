@@ -7,6 +7,8 @@ TagManager:
   - Area
   - Ground
   - Enemy
+  - BioFuel
+  - Item_Magnet
   layers:
   - Default
   - TransparentFX

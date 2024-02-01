@@ -9,7 +9,7 @@ public class Item_magnet : MonoBehaviour
 
     private void Update()
     {
-        // 플레이어를 따라오게끔 업데이트
+        // 플레이어를 따라가게끔 업데이트
         FollowPlayer();
 
     }
