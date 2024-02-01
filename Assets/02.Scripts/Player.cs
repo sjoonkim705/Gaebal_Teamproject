@@ -8,6 +8,7 @@ public class Player : MonoBehaviour
     public Vector2 InputVec;
     public Scanner scanner;
     public float Speed;
+    public float LevelCount;
     private SpriteRenderer _playerSr = null;
     public GameObject[] EnabledWeapons;
 
