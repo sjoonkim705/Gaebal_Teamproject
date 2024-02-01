@@ -8,7 +8,11 @@ TagManager:
   - Ground
   - Enemy
   - BioFuel
+<<<<<<< HEAD
+  - Item_Magnet
+=======
   - Bullet
+>>>>>>> 34b8abfdd0ab57247b413624c3ad04eac29656e1
   layers:
   - Default
   - TransparentFX

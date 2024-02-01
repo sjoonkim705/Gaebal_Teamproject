@@ -1119,8 +1119,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BioFuel_blue_random_spawner
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 6951212068524709697, guid: ef835286b10347b4a801fbb2f09fff1a, type: 3}
+    - target: {fileID: 7150385826320579000, guid: ef835286b10347b4a801fbb2f09fff1a, type: 3}
+      propertyPath: m_TagString
+      value: BioFuel
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
