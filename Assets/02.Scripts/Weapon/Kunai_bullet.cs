@@ -9,7 +9,8 @@ public class Kunai_bullet : MonoBehaviour
     public Transform target;
     void Start()
     {
-        target = GameManager.Instance.player.GetComponent<Scanner>().nearestTarget;
+        target = GetComponentInParent<Scanner>().nearestTarget;
+
         
     }
 

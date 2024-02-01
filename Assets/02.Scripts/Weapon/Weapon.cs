@@ -14,8 +14,7 @@ public class Weapon : MonoBehaviour
 {
     public float Damage;
     public int Count;
-    public float Speed;
-
+    public float CoolTime;
 
     public GameObject Bullet_prefab;
     private float _timer;
@@ -26,6 +25,11 @@ public class Weapon : MonoBehaviour
     {
         // player = GetComponentInParent<Player>();
        _timer = 0;
+        if (WType == WeaponType.Kunai)
+        {
+            CoolTime = 1.0f;
+
+        }
     }
     void Start()
     {
@@ -36,15 +40,19 @@ public class Weapon : MonoBehaviour
   
     void Update()
     {
-
-          transform.Rotate(Vector3.back * Speed * Time.deltaTime);
+        _timer += Time.deltaTime;
+        if (_timer > CoolTime)
+        {
+            Fire();
+            _timer = 0;
+        }
 
     }
     public void Fire()
     {
         // Debug.Log("Fire");
         GameObject bullet = GameObject.Instantiate(Bullet_prefab);
-        bullet.transform.SetParent(this.transform);
+        //bullet.transform.SetParent(this.transform);
         bullet.transform.position = transform.position;
         //bullet.get
         // bullet.dir = 
