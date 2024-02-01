@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 519420032}
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -292,6 +293,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d6b803d48858b8e48abafa709545da9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CameraPos: {x: 0, y: 0, z: 0}
 --- !u!1 &524898097
 GameObject:
   m_ObjectHideFlags: 0
@@ -628,6 +642,7 @@ GameObject:
   - component: {fileID: 884085433}
   - component: {fileID: 884085432}
   - component: {fileID: 884085431}
+  - component: {fileID: 884085435}
   m_Layer: 6
   m_Name: ExampleEnemy (Bottom)
   m_TagString: Untagged
@@ -764,6 +779,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 773569238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &884085435
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884085430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac50daef861c2004d9b3371c0c2d6879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  Health: 0
+  target: {fileID: 0}
 --- !u!1 &1036941586
 GameObject:
   m_ObjectHideFlags: 0
@@ -951,11 +981,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b56ba6b3dca65ff499be03ea9bfb3449, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CoolTime: 1
-  isTargetType: 0
-  isPiercing: 0
-  direction: {x: 0, y: 0}
-  bullet_prefab: {fileID: 8403677243194927541, guid: 4d5dad43e65805f4faf29dac0b43e40b, type: 3}
+  Damage: 0
+  Count: 0
+  Speed: 0
+  Bullet_prefab: {fileID: 0}
+  Target: {fileID: 0}
   WType: 0
 --- !u!1 &1569201113
 GameObject:
@@ -1014,6 +1044,7 @@ GameObject:
   - component: {fileID: 1876237294}
   - component: {fileID: 1876237293}
   - component: {fileID: 1876237292}
+  - component: {fileID: 1876237296}
   m_Layer: 6
   m_Name: ExampleEnemy (Middle)
   m_TagString: Untagged
@@ -1150,6 +1181,21 @@ Transform:
   m_Children: []
   m_Father: {fileID: 773569238}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1876237296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876237291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac50daef861c2004d9b3371c0c2d6879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  Health: 0
+  target: {fileID: 0}
 --- !u!1 &1980563953
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,6 +1208,7 @@ GameObject:
   - component: {fileID: 1980563954}
   - component: {fileID: 1980563956}
   - component: {fileID: 1980563957}
+  - component: {fileID: 1980563958}
   m_Layer: 6
   m_Name: ExampleEnemy (Top)
   m_TagString: Untagged
@@ -1298,6 +1345,21 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1980563958
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980563953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac50daef861c2004d9b3371c0c2d6879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 0
+  Health: 0
+  target: {fileID: 0}
 --- !u!1 &2009144852
 GameObject:
   m_ObjectHideFlags: 0
