@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4657758501967106934}
   - component: {fileID: 2391409354329091562}
   m_Layer: 0
-  m_Name: Item_magnet
+  m_Name: Item_Magnet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
