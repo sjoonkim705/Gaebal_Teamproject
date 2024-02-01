@@ -9,29 +9,54 @@ public class Player : MonoBehaviour
     public Scanner scanner;
     public float Speed;
     public float LevelCount;
-    private SpriteRenderer _playerSr = null;
-    public GameObject[] EnabledWeapons;
+    private int _playerHealth;
+    public int PlayerMaxHealth;
 
+    public int PlayerLevel;
+
+    private SpriteRenderer _playerSr = null;
+    WeaponType WType;
     private const float DEFALT_PLAYER_SPEED = 5.0f;
 
+    public void DecreasePlayerHealth(int amount)
+    {
+        if (amount <=0)
+        {
+            return;
+        }
+
+        _playerHealth -= amount;
+    }
     private void Awake()
     {
         scanner = GetComponent<Scanner>();
 
+
     }
     void Start()
     {
+        PlayerMaxHealth = 100;
+        _playerHealth = PlayerMaxHealth;
+        PlayerLevel = 0;   // 첫 시작때 경험치, 레벨 0부터 시작
+        LevelCount = 0;
+
+
         Speed = DEFALT_PLAYER_SPEED;
         _playerSr = GetComponent<SpriteRenderer>(); // playermove 좌우반전을 위한 spriterenderer
+
     }
 
-    // Update is called once per frame
     void Update()
     {
         InputVec.x = Input.GetAxis("Horizontal");
         InputVec.y = Input.GetAxis("Vertical");
-        PlayerAttack();
- 
+        int expRequired = (PlayerLevel + 1) * 10;
+
+        if (LevelCount >= expRequired)
+        {
+            PlayerLevel++;
+            LevelCount = 0;
+        }
 
     }
     private void LateUpdate()
@@ -39,17 +64,15 @@ public class Player : MonoBehaviour
         PlayerMove();
 
     }
-    private void PlayerAttack()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        foreach (GameObject weapon in EnabledWeapons)
+        if (collision.collider.CompareTag("Enemy"))
         {
-            // 각각 쿨타임당 한번씩 호출
-
-           // float coolTime = weapon.coolTime;
-
-           // weapon.cooltime = gmainstantiate
+            DecreasePlayerHealth(10);
+            Debug.Log("Health Decreased");
         }
     }
+
     private void PlayerMove()
     {
         Vector2 nextPos = InputVec * Speed * Time.deltaTime;
