@@ -10,8 +10,8 @@ public class Enemy : MonoBehaviour
     // 3번 무기로 죽음
 
 
-    public float Speed;
-    public int Health;
+    public float Speed = 1f;
+    public int Health = 2;
 
     public GameObject target;
     private Vector2 dir;
