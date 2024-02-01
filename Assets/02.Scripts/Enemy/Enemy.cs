@@ -43,21 +43,28 @@ public class Enemy : MonoBehaviour
         EnemySpriter.flipX = target.transform.position.x > this.transform.position.x;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D Collider)
     {
-        if (collision.collider.tag == "Bullet") 
+        
+        if (Collider.tag == "Bullet") 
         {
-            Weapon bellet = collision.collider.GetComponent<Weapon>();
+            Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
 
-            if(bellet.WType == WeaponType.Kunai) 
+            // Destroy(gameObject);
+            // Destroy(Collider.gameObject);
+            Debug.Log("qwe");
+
+            if (bellet) 
             {
                 Health -= 1;
+                Debug.Log("hi");
             }
             if (Health <= 0) 
             {
-                Destroy(collision.collider.gameObject);
+                
                 Destroy(gameObject);
             }
+            Destroy(Collider.gameObject);
         }
     }
 }
