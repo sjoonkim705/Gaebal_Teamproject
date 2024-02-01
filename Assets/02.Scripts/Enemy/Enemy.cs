@@ -18,6 +18,12 @@ public class Enemy : MonoBehaviour
 
     SpriteRenderer EnemySpriter;
 
+    public GameObject BioFuel_Green;
+    public GameObject BioFuel_Blue;
+    public GameObject BioFuel_Yellow;
+
+    float makebio;
+
     void Start()
     {
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
@@ -27,6 +33,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         EnemyMove();
+
+        EnemySpriter.flipX = target.transform.position.x > this.transform.position.x; // 2번
     }
     void EnemyMove() // 1번
     {
@@ -37,12 +45,6 @@ public class Enemy : MonoBehaviour
 
         transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
     }
-
-    void LateUpdate() // 2번
-    {
-        EnemySpriter.flipX = target.transform.position.x > this.transform.position.x;
-    }
-
     private void OnTriggerEnter2D(Collider2D Collider)
     {
         
@@ -63,8 +65,34 @@ public class Enemy : MonoBehaviour
             {
                 
                 Destroy(gameObject);
+                MakeBioFuel();
             }
             Destroy(Collider.gameObject);
+        }
+    }
+    public void MakeBioFuel() 
+    {
+        
+
+        makebio = Random.Range(0, 100);
+
+        if (makebio <= 50)
+        {
+            GameObject biofuel = Instantiate(BioFuel_Green);
+
+            biofuel.transform.position = this.transform.position;
+        }
+        else if (makebio <= 30)
+        {
+            GameObject biofuel = Instantiate(BioFuel_Blue);
+
+            biofuel.transform.position = this.transform.position;
+        }
+        else if(makebio <= 20)
+        {
+            GameObject biofuel = Instantiate(BioFuel_Yellow);
+
+            biofuel.transform.position = this.transform.position;
         }
     }
   
