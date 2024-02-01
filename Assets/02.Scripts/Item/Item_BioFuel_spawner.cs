@@ -8,8 +8,8 @@ public class Item_BioFuel_spawner : MonoBehaviour
     public GameObject BioFuel_blue;
     public GameObject BioFuel_green;
     public GameObject BioFuel_yellow;
-    public int initialFuelCount = 999;
-    public int poolSize = 1000;
+    public int initialFuelCount = 10;
+    public int poolSize = 20;
     public float spreadRadius = 5f; // 흩뿌릴 범위 조절
 
     private List<GameObject> biofuelPool = new List<GameObject>();
@@ -37,7 +37,7 @@ public class Item_BioFuel_spawner : MonoBehaviour
         for (int i = 0; i < initialFuelCount; i++)
         {
             GameObject bioFuel = biofuelPool[i];
-            Vector3 randomPosition = new Vector3(Random.Range(-50f, 50f), Random.Range(-50f, 50f), 0f);
+            Vector3 randomPosition = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0f);
             bioFuel.transform.position = randomPosition;
             bioFuel.SetActive(true);
         }
