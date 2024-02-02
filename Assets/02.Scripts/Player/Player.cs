@@ -90,11 +90,10 @@ public class Player : MonoBehaviour
 
         if(other.collider.CompareTag("Enemy"))
         {
-            Debug.Log(111);
             Vector2 dir = other.transform.position - transform.position ;
             dir.Normalize();
-            float power = 3f;
-            other.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * power);
+            float power = 5f;
+            playerRigid.AddForce(dir * -1 * power);
         }
 
 /*        Debug.Log(other.tag);

@@ -661,6 +661,8 @@ MonoBehaviour:
   Timer: 3
   MinTime: 0.5
   MaxTime: 1
+  SpawnInterval: 10
+  InactiveInterval: 3
 --- !u!4 &827177054
 Transform:
   m_ObjectHideFlags: 0
@@ -1149,7 +1151,7 @@ MonoBehaviour:
   ScanRange: 5
   TargetLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 0
   nearestTarget: {fileID: 0}
 --- !u!1 &2114094485
 GameObject:
