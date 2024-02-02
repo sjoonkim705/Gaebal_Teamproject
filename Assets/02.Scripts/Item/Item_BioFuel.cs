@@ -59,34 +59,39 @@ public class Item_BioFuel : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
 
-
-
-        if (collision.CompareTag("Item_Magnet"))
+        if (collision.CompareTag("Player"))
         {
-         //   Debug.Log("Test");
+            Player player = collision.gameObject.GetComponent<Player>();
+            CollectBioFuel(player);
+            // Debug.Log("경험치 업");
+
         }
+
+
 
         /**
         if (collision.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
             CollectBioFuel(player);
-           // Debug.Log("경험치 업");
+            // Debug.Log("경험치 업");
+
         }
-        else if (collision.CompareTag("Item_Magnet"))
-        {
-            Player player = collision.gameObject.GetComponent<Player>();
-            CollectBioFuel(player);
-            Debug.Log("마그넷으로 경험치 업");
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            return;
-        }
+
+            else if (collision.CompareTag("Item_Magnet"))
+            {
+                Player player = collision.gameObject.GetComponent<Player>();
+                CollectBioFuel(player);
+                Debug.Log("마그넷으로 경험치 업");
+            }
+            else
+            {
+                return;
+            }
         **/
+
     }
-    public void CollectBioFuel(Player player)
+        public void CollectBioFuel(Player player)
     {
         if (bioType == BioType.BioFuel_blue)
         {

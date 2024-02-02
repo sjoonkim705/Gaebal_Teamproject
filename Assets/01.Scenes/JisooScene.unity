@@ -131,6 +131,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8653389962666328025, guid: 0b18f96ef5379044580ae4840f4db96c, type: 3}
+      propertyPath: m_Radius
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4657758501967106934, guid: 0b18f96ef5379044580ae4840f4db96c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1258,6 +1262,10 @@ PrefabInstance:
     - target: {fileID: 7150385826320579000, guid: ef835286b10347b4a801fbb2f09fff1a, type: 3}
       propertyPath: m_Name
       value: BioFuel_blue_random_spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 7150385826320579000, guid: ef835286b10347b4a801fbb2f09fff1a, type: 3}
+      propertyPath: m_TagString
+      value: BioFuel
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
