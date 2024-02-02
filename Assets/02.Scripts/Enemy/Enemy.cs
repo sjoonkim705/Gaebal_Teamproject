@@ -47,7 +47,7 @@ public class Enemy : MonoBehaviour
         //transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
 
 
-        GetComponent<Rigidbody2D>().velocity = dir * Speed;
+        // GetComponent<Rigidbody2D>().velocity = dir * Speed;
         // transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
 
     }
