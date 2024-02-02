@@ -9,8 +9,13 @@ public class Player : MonoBehaviour
     public Scanner scanner;
     public float Speed;
     public float LevelCount;
+<<<<<<< HEAD
+    public int _playerHealth;
+    public int PlayerMaxHealth;
+=======
     private int _playerHealth;
     private int _playerMaxHealth;
+>>>>>>> 635086025c52f5276bd528a041ca22bea48e1612
     private Rigidbody2D playerRigid;
 
     public int PlayerLevel;

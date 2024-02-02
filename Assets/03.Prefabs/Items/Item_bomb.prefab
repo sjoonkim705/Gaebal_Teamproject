@@ -10,8 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7617886903412324586}
   - component: {fileID: 9797194613074964}
+<<<<<<< HEAD
+  - component: {fileID: -4082021229270516587}
+  - component: {fileID: 3030861388080835540}
+=======
   - component: {fileID: 3417699070520385456}
   - component: {fileID: -6568625938258007269}
+>>>>>>> 635086025c52f5276bd528a041ca22bea48e1612
   m_Layer: 0
   m_Name: Item_bomb
   m_TagString: Untagged
@@ -86,7 +91,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
+--- !u!114 &-4082021229270516587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2834155476594099514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62a5f223e541ba74bbb74900ab92d15d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!58 &3030861388080835540
+=======
 --- !u!58 &3417699070520385456
+>>>>>>> 635086025c52f5276bd528a041ca22bea48e1612
 CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,6 +142,8 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+<<<<<<< HEAD
+=======
 --- !u!114 &-6568625938258007269
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -133,3 +156,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62a5f223e541ba74bbb74900ab92d15d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+>>>>>>> 635086025c52f5276bd528a041ca22bea48e1612
