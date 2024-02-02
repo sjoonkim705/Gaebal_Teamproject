@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4844509982925555386}
   - component: {fileID: 7156488337479011121}
   - component: {fileID: 4673172823133196884}
-  m_Layer: 7
+  m_Layer: 6
   m_Name: Bullet_Kunai
   m_TagString: Bullet
   m_Icon: {fileID: 0}
