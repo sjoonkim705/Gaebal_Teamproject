@@ -42,14 +42,14 @@ public class Enemy : MonoBehaviour
 
         dir = target.transform.position - this.transform.position;
         dir = dir.normalized;
-<<<<<<< HEAD
+
         GetComponent<Rigidbody2D>().velocity = dir * Speed;
         //transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
-=======
+
 
         GetComponent<Rigidbody2D>().velocity = dir * Speed;
         // transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
->>>>>>> 241208979591d2fcd98881d131216f2da9d2eba8
+
     }
     private void OnTriggerEnter2D(Collider2D Collider)
     {
