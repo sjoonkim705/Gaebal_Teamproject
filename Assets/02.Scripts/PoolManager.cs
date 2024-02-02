@@ -32,6 +32,7 @@ public class PoolManager : MonoBehaviour
                 select = item;
                 // 활성화
                 select.SetActive(true);
+                
                 break;
             }
         }
@@ -42,6 +43,8 @@ public class PoolManager : MonoBehaviour
             select = Instantiate(prefabs[i]);
             // 풀에 추가
             pools[i].Add(select);
+
+            
         }
         return select;
     }

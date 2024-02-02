@@ -53,12 +53,12 @@ public class Enemy : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D Collider)
     {
-
+        
         if (Collider.tag == "Bullet")
         {
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
 
-            // Debug.Log("qwe");
+            Debug.Log("qwe");
 
             if (bellet.WType == WeaponType.Kunai)
             {
@@ -69,6 +69,7 @@ public class Enemy : MonoBehaviour
             {
 
                 // Destroy(gameObject);
+                gameObject.SetActive(false);
                 MakeBioFuel();
             }
             Destroy(Collider.gameObject);
