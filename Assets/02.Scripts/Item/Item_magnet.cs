@@ -36,20 +36,4 @@ public class Item_magnet : MonoBehaviour
         **/
 
     }
-
-    public float MagnetStrength = 10f;
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("BioFuel"))
-        {
-            // 바이오연료를 자석 쪽으로 이동시키는 로직
-            Item_BioFuel bioFuel = other.GetComponent<Item_BioFuel>();
-            if (bioFuel != null)
-            {
-                bioFuel.AttractToMagnet(transform.position, MagnetStrength);
-            }
-        }
-    }
 }
-
