@@ -69,7 +69,7 @@ public class Item_BioFuel : MonoBehaviour
         {
             Player player = collision.gameObject.GetComponent<Player>();
             CollectBioFuel(player);
-            Debug.Log("경험치 업");
+           // Debug.Log("경험치 업");
         }
         else if (collision.CompareTag("Item_Magnet"))
         {
@@ -88,19 +88,19 @@ public class Item_BioFuel : MonoBehaviour
         {
             player.LevelCount += 1;
             gameObject.SetActive(false);
-            Debug.Log($"캐릭터 경험치 : {player.LevelCount}");
+            // Debug.Log($"캐릭터 경험치 : {player.LevelCount}");
         }
         else if (bioType == BioType.BioFuel_green)
         {
             player.LevelCount += 2;
             gameObject.SetActive(false);
-            Debug.Log($"캐릭터 경험치 : {player.LevelCount}");
+           // Debug.Log($"캐릭터 경험치 : {player.LevelCount}");
         }
         else
         {
             player.LevelCount += 3;
             gameObject.SetActive(false);
-            Debug.Log($"캐릭터 경험치 : {player.LevelCount}");
+           // Debug.Log($"캐릭터 경험치 : {player.LevelCount}");
         }
     }
 }
