@@ -12,36 +12,28 @@ public class Item_BioFuel_spawner : MonoBehaviour
     public int poolSize = 20;
     public float spreadRadius = 5f; // 흩뿌릴 범위 조절
 
-    private List<GameObject> biofuelPool = new List<GameObject>();
+
 
 
         void Start()
     {
         initialFuelPool();
-        spawninitialFuel();
     }
 
-    void initialFuelPool() 
-    {
-        for (int i = 0; i < poolSize; i++) 
-        {
-            GameObject biofuel = Instantiate(BioFuel_blue);
-            biofuel.SetActive(false);
-            biofuelPool.Add(biofuel);
-        }
-        
-    }
-
-    void spawninitialFuel() 
+    void initialFuelPool()
     {
         for (int i = 0; i < initialFuelCount; i++)
         {
-            GameObject bioFuel = biofuelPool[i];
+            GameObject biofuel = Instantiate(BioFuel_blue);
             Vector3 randomPosition = new Vector3(Random.Range(-10f, 10f), Random.Range(-10f, 10f), 0f);
-            bioFuel.transform.position = randomPosition;
-            bioFuel.SetActive(true);
+            biofuel.transform.position = randomPosition;
+            biofuel.SetActive(true);
+
         }
+
+
     }
+
 
     // Update is called once per frame
     void Update()

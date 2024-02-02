@@ -15,10 +15,7 @@ public class Item_BioFuel : MonoBehaviour
     public float Speed = 10f;
     public float followDistance = 5f;
     Vector2 _dir;
-    private GameObject _target;
-    private bool attractedToMagnet = false;
-    private Transform magnetTransform;
-    private float magnetStrength;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -29,14 +26,13 @@ public class Item_BioFuel : MonoBehaviour
     void Update()
     {
         GameObject[] magnet = GameObject.FindGameObjectsWithTag("Item_Magnet");
-        Debug.Log($"마그넷 찾음");
+       // Debug.Log($"마그넷 찾음");
 
-        
 
         for (int i = 0; i < magnet.Length; i++)
         {
             Item_magnet magnetLogic = magnet[i].GetComponent<Item_magnet>();
-            Debug.Log($"마그넷 계산");
+         //   Debug.Log($"마그넷 계산");
 
             _dir = magnetLogic.transform.position - transform.position;
             _dir.Normalize();
@@ -45,12 +41,12 @@ public class Item_BioFuel : MonoBehaviour
 
             Vector2 newPosition = transform.position + (Vector3)(_dir * Speed) * Time.deltaTime;
             transform.position = newPosition;
-            Debug.Log($"마그넷을 따라가게");
+         //   Debug.Log($"마그넷을 따라가게");
 
 
-           // transform.position += (Vector3)(_dir * Speed) * Time.deltaTime;
+            // transform.position += (Vector3)(_dir * Speed) * Time.deltaTime;
 
-
+            
         }
 
 
@@ -62,6 +58,15 @@ public class Item_BioFuel : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+
+
+
+        if (collision.CompareTag("Item_Magnet"))
+        {
+         //   Debug.Log("Test");
+        }
+
+        /**
         if (collision.CompareTag("Player"))
         {
             Player player = collision.gameObject.GetComponent<Player>();
@@ -73,11 +78,13 @@ public class Item_BioFuel : MonoBehaviour
             Player player = collision.gameObject.GetComponent<Player>();
             CollectBioFuel(player);
             Debug.Log("마그넷으로 경험치 업");
+            gameObject.SetActive(false);
         }
         else
         {
             return;
         }
+        **/
     }
     public void CollectBioFuel(Player player)
     {
