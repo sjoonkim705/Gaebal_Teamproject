@@ -59,7 +59,6 @@ public class Weapon : MonoBehaviour
     }
     public void Fire()
     {
-        // Debug.Log("Fire");
         GameObject bulletObject = GameObject.Instantiate(Bullet_prefab);
         //bullet.transform.SetParent(this.transform);
         bulletObject.transform.position = transform.position;

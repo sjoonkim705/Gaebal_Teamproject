@@ -92,8 +92,10 @@ public class Player : MonoBehaviour
         {
             Vector2 dir = other.transform.position - transform.position ;
             dir.Normalize();
-            float power = 5f;
-            playerRigid.AddForce(dir * -1 * power);
+            float power = 500f;
+            other.collider.GetComponent<Rigidbody2D>().AddForce(dir.normalized * power);
+            _playerHealth -= 10;
+           // Debug.Log($"PlayerHP {_playerHealth}");
         }
 
 /*        Debug.Log(other.tag);
@@ -109,10 +111,15 @@ public class Player : MonoBehaviour
             }
         }*/
     }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+
+    }
 
     private void DiePlayer()
     {
-
+        _playerSr.flipX = false;
+        transform.rotation = UnityEngine.Quaternion.Euler(new Vector3(0, 0, 90));
     }
     private void PlayerMove()
     {
