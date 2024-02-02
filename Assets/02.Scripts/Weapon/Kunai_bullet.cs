@@ -5,9 +5,15 @@ using UnityEngine;
 public class Kunai_bullet : MonoBehaviour
 {
     public Vector2 dir;
-    public float Speed = 5f;
+    private float _bulletSpeed = 10f;
     public Transform Target;
     public WeaponType WType;
+    public void SetBulletSpeed(float speed)
+    {
+        _bulletSpeed = speed;
+        if (speed <= 0) { return; }
+
+    }
     void Start()
     {
         WType = WeaponType.Kunai;
@@ -22,14 +28,14 @@ public class Kunai_bullet : MonoBehaviour
 
     void FixedUpdate()
     {
-        Vector3 newPos = dir * Speed * Time.fixedDeltaTime;
+        Vector3 newPos = dir * _bulletSpeed * Time.fixedDeltaTime;
         transform.position += newPos;
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("Area"))   // 총알이 영역 밖으로 나가면 destroy
         {
-            Destroy(this.gameObject);
+            this.gameObject.SetActive(false);
         }
     }
 

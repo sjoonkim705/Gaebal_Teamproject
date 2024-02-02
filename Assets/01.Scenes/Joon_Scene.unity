@@ -350,7 +350,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -571,7 +571,7 @@ GameObject:
   m_Component:
   - component: {fileID: 699115626}
   - component: {fileID: 699115627}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Weapon0_Kunai
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -869,7 +869,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1798603137}
   - component: {fileID: 1798603138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Area
   m_TagString: Area
   m_Icon: {fileID: 0}
@@ -990,6 +990,7 @@ MonoBehaviour:
   scanner: {fileID: 0}
   Speed: 5
   LevelCount: 0
+  PlayerMaxHealth: 100
   PlayerLevel: 0
 --- !u!70 &2092447384
 CapsuleCollider2D:
