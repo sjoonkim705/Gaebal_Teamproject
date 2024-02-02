@@ -28,38 +28,35 @@ public class Item_BioFuel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (attractedToMagnet && magnetTransform != null)
-        {
-            Vector3 direction = (magnetTransform.position - transform.position).normalized;
-            transform.position += direction * Speed * Time.deltaTime;
-        }
-        ComeBioFuel();
-    }
+        GameObject[] magnet = GameObject.FindGameObjectsWithTag("Item_Magnet");
+        Debug.Log($"마그넷 찾음");
 
-    public void AttractToMagnet(Vector3 magnetPosition, float strength)
-    {
-        attractedToMagnet = true;
-        magnetTransform.transform.position += Vector3.right; // 여기서 자석의 Transform을 설정해도 됩니다. 예를 들면, magnetTransform = magnetTransform;
-        magnetStrength = strength;
-    }
-    void ComeBioFuel()
-    {
-
-        /**
         
-        GameObject bioPos = GameObject.Find("Item_Magnet");
-        if (bioPos != null)
+
+        for (int i = 0; i < magnet.Length; i++)
         {
-                Debug.LogWarning("따라가기");
-                Vector3 playerDirection = (bioPos.transform.position - transform.position).normalized;
-                transform.position += playerDirection * Speed * Time.deltaTime;
+            Item_magnet magnetLogic = magnet[i].GetComponent<Item_magnet>();
+            Debug.Log($"마그넷 계산");
+
+            _dir = magnetLogic.transform.position - transform.position;
+            _dir.Normalize();
+
+
+
+            Vector2 newPosition = transform.position + (Vector3)(_dir * Speed) * Time.deltaTime;
+            transform.position = newPosition;
+            Debug.Log($"마그넷을 따라가게");
+
+
+           // transform.position += (Vector3)(_dir * Speed) * Time.deltaTime;
+
+
         }
-        else
-        {
-            Debug.LogWarning("마그넷을 찾을 수 없음");
-        }
-     **/
+
+
     }
+
+
 
 
 
