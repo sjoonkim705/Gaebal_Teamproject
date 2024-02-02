@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac50daef861c2004d9b3371c0c2d6879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 0.3
+  Speed: 0.5
   Health: 1
   target: {fileID: 0}
   BioFuel_Green: {fileID: 8196418416276026524, guid: a278e81712582d349a08a91d359a1dd9, type: 3}
