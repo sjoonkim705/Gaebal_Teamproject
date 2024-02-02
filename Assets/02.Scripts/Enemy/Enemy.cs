@@ -22,7 +22,7 @@ public class Enemy : MonoBehaviour
     public GameObject BioFuel_Blue;
     public GameObject BioFuel_Yellow;
 
-
+    private Vector3 deathPosition; // 에너미 죽은 위치 저장
 
     void Start()
     {
@@ -67,7 +67,7 @@ public class Enemy : MonoBehaviour
             }
             if (Health <= 0)
             {
-
+                deathPosition = transform.position;
                 // Destroy(gameObject);
                 gameObject.SetActive(false);
                 MakeBioFuel();
@@ -85,20 +85,24 @@ public class Enemy : MonoBehaviour
         {
             GameObject biofuel = Instantiate(BioFuel_Green);
 
-            biofuel.transform.position = this.transform.position;
+            // PlaceBioFuel(biofuel);
+            biofuel.transform.position = deathPosition;
         }
         else if (makebio <= 8)
         {
             GameObject biofuel = Instantiate(BioFuel_Blue);
 
-            biofuel.transform.position = this.transform.position;
+            // PlaceBioFuel(biofuel);
+            biofuel.transform.position = deathPosition;
         }
         else
         {
             GameObject biofuel = Instantiate(BioFuel_Yellow);
 
-            biofuel.transform.position = this.transform.position;
+            // PlaceBioFuel(biofuel);
+            biofuel.transform.position = deathPosition;
         }
     }
+ 
    
 }
