@@ -9,13 +9,13 @@ public class Player : MonoBehaviour
     public Scanner scanner;
     public float Speed;
     public float LevelCount;
-<<<<<<< HEAD
+
     public int _playerHealth;
     public int PlayerMaxHealth;
-=======
-    private int _playerHealth;
-    private int _playerMaxHealth;
->>>>>>> 635086025c52f5276bd528a041ca22bea48e1612
+
+    //private int _playerHealth;
+    //private int _playerMaxHealth;
+
     private Rigidbody2D playerRigid;
 
     public int PlayerLevel;
@@ -42,8 +42,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        _playerMaxHealth = 100;
-        _playerHealth = _playerMaxHealth;
+        PlayerMaxHealth = 100;
+        _playerHealth = PlayerMaxHealth;
         PlayerLevel = 0;   // 첫 시작때 경험치, 레벨 0부터 시작
         LevelCount = 0;
 
