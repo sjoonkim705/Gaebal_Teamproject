@@ -16,17 +16,17 @@ public class Weapon : MonoBehaviour
     public float Damage;
     public int Count;
     public float CoolTime;
-
+    private Player _player;
     public GameObject Bullet_prefab;
     private float _timer;
     public Transform Target;
     public WeaponType WType;
-    private Scanner _scanner;
     private List<GameObject> _bulletPool;
 
 
     private void Awake()
     {
+        _player = GetComponentInParent<Player>();
         _poolSize = 20;
         _bulletPool = new List<GameObject>();
        _timer = 0;
@@ -54,7 +54,7 @@ public class Weapon : MonoBehaviour
   
     void Update()
     {
-        Target = GameManager.Instance.player.GetComponent<Scanner>().nearestTarget;
+        Target = _player.scanner.nearestTarget;
         _timer += Time.deltaTime;
         if (_timer > CoolTime && Target != null)
         {
@@ -65,6 +65,10 @@ public class Weapon : MonoBehaviour
     }
     public void Fire()
     {
+        if (!_player.scanner.nearestTarget)
+        {
+            return;
+        }
         // GameObject bulletObject = GameObject.Instantiate(Bullet_prefab);
         // bullet.transform.SetParent(this.transform);
         //bulletObject.transform.position = transform.position;
@@ -80,10 +84,9 @@ public class Weapon : MonoBehaviour
             }
         }
 
-        // 2. 꺼낸 총알의 위치를 각 총구의 위치로 바꾼다.
+        bullet.GetComponent<Kunai_bullet>().SetTarget(_player.scanner.nearestTarget);
         bullet.transform.position = this.transform.position;
         bullet.SetActive(true);
-        bullet.GetComponent<Kunai_bullet>().Target = Target;
 
 
 
