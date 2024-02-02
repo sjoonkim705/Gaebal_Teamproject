@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
        // GetComponent<Rigidbody2D>().velocity = nextPos;
        // transform.position += (Vector3)nextPos;
 
-        Vector2 nextPos = InputVec.normalized * Speed;// * Time.deltaTime;
+        Vector2 nextPos = InputVec * Speed;// * Time.deltaTime;
         GetComponent<Rigidbody2D>().velocity = nextPos;
         //Vector2 nextPos = InputVec * Speed * Time.deltaTime;
         //transform.position += (Vector3)nextPos;
