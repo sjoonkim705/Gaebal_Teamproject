@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public float LevelCount;
     private int _playerHealth;
     public int PlayerMaxHealth;
+    private Rigidbody2D playerRigid;
 
     public int PlayerLevel;
     private float enemyCollisionTimer;
@@ -31,6 +32,7 @@ public class Player : MonoBehaviour
     private void Awake()
     {
         scanner = GetComponent<Scanner>();
+        playerRigid = GetComponent<Rigidbody2D>();
 
 
     }
@@ -65,7 +67,7 @@ public class Player : MonoBehaviour
         }
 
     }
-    private void LateUpdate()
+    private void FixedUpdate()
     {
         PlayerMove();
     }
@@ -79,8 +81,22 @@ public class Player : MonoBehaviour
         enemyCollisionTimer = 0;
 
     }
-    private void OnTriggerStay2D(Collider2D other)
+
+    
+
+
+    private void OnCollisionEnter2D(Collision2D other)
     {
+
+        if(other.collider.CompareTag("Enemy"))
+        {
+            Debug.Log(111);
+            Vector2 dir = other.transform.position - transform.position ;
+            dir.Normalize();
+            float power = 3f;
+            other.gameObject.GetComponent<Rigidbody2D>().AddForce(dir * power);
+        }
+
 /*        Debug.Log(other.tag);
 
         if (other.CompareTag("Enemy"))
@@ -101,10 +117,19 @@ public class Player : MonoBehaviour
     }
     private void PlayerMove()
     {
+<<<<<<< HEAD
+
+        //playerRigid.AddForce(decreasedInputvec);
+
+        Vector2 nextPos = InputVec * Speed;// * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = nextPos;
+       // transform.position += (Vector3)nextPos;
+=======
         Vector2 nextPos = InputVec.normalized * Speed;// * Time.deltaTime;
         GetComponent<Rigidbody2D>().velocity = nextPos;
         //Vector2 nextPos = InputVec * Speed * Time.deltaTime;
         //transform.position += (Vector3)nextPos;
+>>>>>>> 241208979591d2fcd98881d131216f2da9d2eba8
         if (InputVec.x < 0)
         {
            _playerSr.flipX = true;
@@ -115,4 +140,6 @@ public class Player : MonoBehaviour
         }
 
     }
+
+
 }
