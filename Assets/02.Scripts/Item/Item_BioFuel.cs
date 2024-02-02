@@ -15,45 +15,55 @@ public class Item_BioFuel : MonoBehaviour
     public float Speed = 10f;
     public float followDistance = 5f;
     Vector2 _dir;
-
+    private GameObject _target;
+    private bool attractedToMagnet = false;
+    private Transform magnetTransform;
+    private float magnetStrength;
     // Start is called before the first frame update
     void Start()
     {
+
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (attractedToMagnet && magnetTransform != null)
+        {
+            Vector3 direction = (magnetTransform.position - transform.position).normalized;
+            transform.position += direction * Speed * Time.deltaTime;
+        }
         ComeBioFuel();
+    }
+
+    public void AttractToMagnet(Vector3 magnetPosition, float strength)
+    {
+        attractedToMagnet = true;
+        magnetTransform.transform.position += Vector3.right; // 여기서 자석의 Transform을 설정해도 됩니다. 예를 들면, magnetTransform = magnetTransform;
+        magnetStrength = strength;
     }
     void ComeBioFuel()
     {
+
+        /**
         
         GameObject bioPos = GameObject.Find("Item_Magnet");
         if (bioPos != null)
         {
-            Debug.LogWarning("마그넷을 찾을 수 없음");
-            // 마그넷과 바이오연료 간의 거리 계산
-            float distance = Vector3.Distance(transform.position, bioPos.transform.position);
-            Debug.LogWarning("거리 계산");
-
-            if (distance <= followDistance)
-            {
                 Debug.LogWarning("따라가기");
                 Vector3 playerDirection = (bioPos.transform.position - transform.position).normalized;
                 transform.position += playerDirection * Speed * Time.deltaTime;
-            }
         }
         else
         {
-            // Debug.LogWarning("마그넷을 찾을 수 없음");
+            Debug.LogWarning("마그넷을 찾을 수 없음");
         }
-       
+     **/
     }
 
 
 
-    void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
         {
@@ -72,7 +82,7 @@ public class Item_BioFuel : MonoBehaviour
             return;
         }
     }
-    void CollectBioFuel(Player player)
+    public void CollectBioFuel(Player player)
     {
         if (bioType == BioType.BioFuel_blue)
         {

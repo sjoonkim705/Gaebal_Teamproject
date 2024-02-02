@@ -13,9 +13,12 @@ public class EnemySpawner : MonoBehaviour
     public float MinTime = 0.5f;
     public float MaxTime = 1.5f;
 
+    public float SpawnInterval = 10f;
+    public float InactiveInterval = 3f;
+
     void Start()
     {
-        RandomRate();
+        StartCoroutine(SpawnEnemies());
     }
 
     
@@ -50,4 +53,28 @@ public class EnemySpawner : MonoBehaviour
         
 
     }
+    void DeactivateEnemy() 
+    {
+        GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        foreach(GameObject enemy in enemies) 
+        {
+            if (enemy.activeSelf) 
+            {
+            enemy.SetActive(false);
+            }
+        }
+    }
+    IEnumerator SpawnEnemies() 
+    {
+        // 10초 동안 적 생성
+        RandomRate();
+        yield return new WaitForSeconds(SpawnInterval);
+
+
+        // 3초 동안 적 비활성화
+        DeactivateEnemy();
+        yield return new WaitForSeconds(InactiveInterval);
+    }
+
+   
 }

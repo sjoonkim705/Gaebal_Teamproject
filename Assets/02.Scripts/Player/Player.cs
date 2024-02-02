@@ -117,12 +117,11 @@ public class Player : MonoBehaviour
     }
     private void PlayerMove()
     {
-        Vector2 decreasedInputvec = InputVec.normalized*0.5f;
 
         //playerRigid.AddForce(decreasedInputvec);
 
-        Vector2 nextPos = InputVec.normalized * Speed;// * Time.deltaTime;
-        GetComponent<Rigidbody2D>().velocity = nextPos;//.AddForce()
+        Vector2 nextPos = InputVec * Speed;// * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = nextPos;
        // transform.position += (Vector3)nextPos;
         if (InputVec.x < 0)
         {
