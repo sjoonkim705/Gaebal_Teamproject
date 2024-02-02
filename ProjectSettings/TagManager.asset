@@ -3,7 +3,13 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Area
+  - Ground
+  - BioFuel
+  - Bullet
+  - Enemy
+  - Item_Magnet
   layers:
   - Default
   - TransparentFX
@@ -11,9 +17,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Bullet
+  - Enemy
+  - Player
   - 
   - 
   - 
@@ -40,4 +46,16 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: BioFuel
+    uniqueID: 2686955643
+    locked: 0
+  - name: Enemy
+    uniqueID: 101934271
+    locked: 0
+  - name: Player
+    uniqueID: 1073668935
+    locked: 0
+  - name: Bullet
+    uniqueID: 3750159325
     locked: 0
