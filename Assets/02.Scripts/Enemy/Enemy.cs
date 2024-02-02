@@ -72,7 +72,7 @@ public class Enemy : MonoBehaviour
                 gameObject.SetActive(false);
                 MakeBioFuel();
             }
-            Destroy(Collider.gameObject);
+            Collider.gameObject.SetActive(false);
         }
         
     }
