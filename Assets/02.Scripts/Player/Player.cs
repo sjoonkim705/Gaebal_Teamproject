@@ -117,12 +117,19 @@ public class Player : MonoBehaviour
     }
     private void PlayerMove()
     {
+<<<<<<< HEAD
 
         //playerRigid.AddForce(decreasedInputvec);
 
         Vector2 nextPos = InputVec * Speed;// * Time.deltaTime;
         GetComponent<Rigidbody2D>().velocity = nextPos;
        // transform.position += (Vector3)nextPos;
+=======
+        Vector2 nextPos = InputVec.normalized * Speed;// * Time.deltaTime;
+        GetComponent<Rigidbody2D>().velocity = nextPos;
+        //Vector2 nextPos = InputVec * Speed * Time.deltaTime;
+        //transform.position += (Vector3)nextPos;
+>>>>>>> 241208979591d2fcd98881d131216f2da9d2eba8
         if (InputVec.x < 0)
         {
            _playerSr.flipX = true;
