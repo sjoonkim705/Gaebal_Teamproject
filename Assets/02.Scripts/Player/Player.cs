@@ -10,11 +10,10 @@ public class Player : MonoBehaviour
     public float Speed;
     public float LevelCount;
     private int _playerHealth;
-    public int PlayerMaxHealth;
+    private int _playerMaxHealth;
     private Rigidbody2D playerRigid;
 
     public int PlayerLevel;
-    private float enemyCollisionTimer;
 
     private SpriteRenderer _playerSr = null;
     WeaponType WType;
@@ -38,8 +37,8 @@ public class Player : MonoBehaviour
     }
     void Start()
     {
-        PlayerMaxHealth = 100;
-        _playerHealth = PlayerMaxHealth;
+        _playerMaxHealth = 100;
+        _playerHealth = _playerMaxHealth;
         PlayerLevel = 0;   // 첫 시작때 경험치, 레벨 0부터 시작
         LevelCount = 0;
 
@@ -78,7 +77,7 @@ public class Player : MonoBehaviour
             DecreasePlayerHealth(10);
             //Debug.Log("Health Decreased");
         }
-        enemyCollisionTimer = 0;
+        //enemyCollisionTimer = 0;
 
     }
 
@@ -87,7 +86,7 @@ public class Player : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-
+        //Debug.Log(other.collider.tag);
         if(other.collider.CompareTag("Enemy"))
         {
             Vector2 dir = other.transform.position - transform.position ;
@@ -118,23 +117,17 @@ public class Player : MonoBehaviour
 
     private void DiePlayer()
     {
-        _playerSr.flipX = false;
-        transform.rotation = UnityEngine.Quaternion.Euler(new Vector3(0, 0, 90));
+        /*        _playerSr.flipX = false;
+                transform.rotation = UnityEngine.Quaternion.Euler(new Vector3(0, 0, 90));*/
+  //      Debug.Log("Player Died");
     }
     private void PlayerMove()
     {
 
 
-        //playerRigid.AddForce(decreasedInputvec);
-
-        // Vector2 nextPos = InputVec * Speed;// * Time.deltaTime;
-       // GetComponent<Rigidbody2D>().velocity = nextPos;
-       // transform.position += (Vector3)nextPos;
-
-        Vector2 nextPos = InputVec * Speed;// * Time.deltaTime;
+        Vector2 nextPos = InputVec * Speed;
         GetComponent<Rigidbody2D>().velocity = nextPos;
-        //Vector2 nextPos = InputVec * Speed * Time.deltaTime;
-        //transform.position += (Vector3)nextPos;
+
 
         if (InputVec.x < 0)
         {
