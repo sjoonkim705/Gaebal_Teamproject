@@ -68,7 +68,7 @@ public class Enemy : MonoBehaviour
             if (Health <= 0)
             {
 
-                Destroy(gameObject);
+                // Destroy(gameObject);
                 MakeBioFuel();
             }
             Destroy(Collider.gameObject);
