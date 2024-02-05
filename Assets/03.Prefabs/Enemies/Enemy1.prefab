@@ -99,8 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac50daef861c2004d9b3371c0c2d6879, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EType: 0
   Speed: 1
-  Health: 2
+  Health: 1
   target: {fileID: 0}
   BioFuel_Green: {fileID: 8196418416276026524, guid: a278e81712582d349a08a91d359a1dd9, type: 3}
   BioFuel_Blue: {fileID: 7655265004665779348, guid: 212570211c8baca4d8bb2e5bc9e18a7b, type: 3}
