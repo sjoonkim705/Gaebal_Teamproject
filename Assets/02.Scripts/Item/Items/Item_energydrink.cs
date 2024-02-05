@@ -16,16 +16,22 @@ public class Item_energydrink : MonoBehaviour
     // Update is called once per frame
     void LateUpdate()
     {
+        EnergyDrinking();
+    }
+
+    public void EnergyDrinking()
+    {
         _time += Time.deltaTime;
 
-        if (_time >= _fiveSecond) 
+        if (_time >= _fiveSecond)
         {
-           _time = 0;
+            _time = 0;
             Player player = FindObjectOfType<Player>();
             player._playerHealth++;
             player._playerHealth = Mathf.Clamp(player._playerHealth, 0, player.PlayerMaxHealth);
             Debug.Log(player._playerHealth);
         }
+
     }
 
 }

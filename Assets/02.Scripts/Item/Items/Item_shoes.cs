@@ -10,6 +10,11 @@ public class Item_shoes : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        ShoesSpeed();
+    }
+
+    public void ShoesSpeed()
+    {
         Player player = GetComponent<Player>();
         player.Speed *= 1.1f;
         float maxSpeed = 10.0f; // 최대 이동 속도 설정
