@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     {
         EnemyMove();
 
-        EnemySpriter.flipX = target.transform.position.x > this.transform.position.x; // 2번
+        EnemySpriter.flipX = target.transform.position.x < this.transform.position.x; // 2번
     }
     void EnemyMove() // 1번
     {

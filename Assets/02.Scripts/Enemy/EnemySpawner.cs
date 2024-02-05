@@ -63,7 +63,7 @@ public class EnemySpawner : MonoBehaviour
     void Spawn() 
     {
         // 게임 매니저에서 오브젝트 풀에서 에너미를 가져와 생성
-        GameObject enemy = GameManager.Instance.pool.Get(Random.Range(0, 1));
+        GameObject enemy = GameManager.Instance.pool.Get(Random.Range(0, 2));
         // 랜덤한 위치에 에너미 배치
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
     }
