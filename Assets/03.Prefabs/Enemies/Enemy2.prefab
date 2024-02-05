@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 101934271
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: d118ab2d108e8904986e043297d2178f, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ff8c49b54fa0b294dae4667173d97c75, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -107,7 +107,8 @@ MonoBehaviour:
   BioFuel_Green: {fileID: 8196418416276026524, guid: a278e81712582d349a08a91d359a1dd9, type: 3}
   BioFuel_Blue: {fileID: 7655265004665779348, guid: 212570211c8baca4d8bb2e5bc9e18a7b, type: 3}
   BioFuel_Yellow: {fileID: 1590291140030563697, guid: 7dcc7b23e29402847a8c49f21cbc00a2, type: 3}
-  EnemyDie: {fileID: 0}
+  DieE: {fileID: -7686337053823769966}
+  IsDie: 0
 --- !u!50 &-8985773970690683794
 Rigidbody2D:
   serializedVersion: 4
