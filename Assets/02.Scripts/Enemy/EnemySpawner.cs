@@ -45,13 +45,13 @@ public class EnemySpawner : MonoBehaviour
             _timer = 0;
         }
         // 60초가 지나면
-        if (timeElapsed >= 60f)
+        if (timeElapsed >= 30f)
         {
             // 에너미 리스폰 간격 2배
             currentSpawnInterval = doubleSpawnInterval;
         }
         // 30초 이후에는
-        if (timeElapsed >= 90f) 
+        if (timeElapsed >= 50f) 
         {
             // 다시 초기 간격으로 변경
             currentSpawnInterval = initalSpawnInterval;
