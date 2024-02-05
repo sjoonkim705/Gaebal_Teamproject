@@ -28,18 +28,16 @@ public class Enemy : MonoBehaviour
     public GameObject BioFuel_Yellow;
 
     private Vector3 deathPosition; // 에너미 죽은 위치 저장
-    
-   
+
+    public Animator EnemyDie;
+
+
+
 
     void Start()
     {
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
-        
-        
-       
     }
-
-
     void FixedUpdate()
     {
         EnemyMove();
@@ -55,20 +53,15 @@ public class Enemy : MonoBehaviour
 
         GetComponent<Rigidbody2D>().velocity = dir * Speed;
         //transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
-
-
         // GetComponent<Rigidbody2D>().velocity = dir * Speed;
         // transform.position += (Vector3)(dir * Speed) * Time.deltaTime;
-
     }
     private void OnTriggerEnter2D(Collider2D Collider)
     {
-        
         if (Collider.tag == "Bullet") // 태그 확인
         {
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
-
-            Debug.Log("qwe");
+            // Debug.Log("qwe");
 
             if (bellet.WType == WeaponType.Kunai)
             {
@@ -78,14 +71,15 @@ public class Enemy : MonoBehaviour
             if (Health <= 0)
             {
                 deathPosition = transform.position;
+                
                 // Destroy(gameObject);
                 gameObject.SetActive(false);
                 MakeBioFuel();
-               
+
+                
             }
             Collider.gameObject.SetActive(false);
         }
-        
     }
     public void MakeBioFuel()
     {
@@ -98,17 +92,14 @@ public class Enemy : MonoBehaviour
             {
                 GameObject biofuel = Instantiate(BioFuel_Green);
 
-                // PlaceBioFuel(biofuel);
                 biofuel.transform.position = deathPosition;
             }
             else
             {
                 GameObject biofuel = Instantiate(BioFuel_Blue);
 
-                // PlaceBioFuel(biofuel);
                 biofuel.transform.position = deathPosition;
             }
-           
         }
         else if (EType == EnemyType.Enemy2) 
         {
@@ -116,20 +107,14 @@ public class Enemy : MonoBehaviour
             {
                 GameObject biofuel = Instantiate(BioFuel_Blue);
 
-                // PlaceBioFuel(biofuel);
                 biofuel.transform.position = deathPosition;
             }
             else 
             {
                 GameObject biofuel = Instantiate(BioFuel_Yellow);
 
-                // PlaceBioFuel(biofuel);
                 biofuel.transform.position = deathPosition;
             }
-           
         }
-        
     }
- 
-   
 }

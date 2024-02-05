@@ -12,11 +12,11 @@ public class EnemySpawner : MonoBehaviour
     // 경과 시간 측정
     public float timeElapsed;
     // 초기 에너미 리스폰 간격
-    float initalSpawnInterval = 2f;
+    float initalSpawnInterval = 1f;
     // 현재 에너미 리스폰 간격
     float currentSpawnInterval;
     // 증가시킬 에너미 리스폰 간격
-    float doubleSpawnInterval = 0.1f;
+    float doubleSpawnInterval = 0.2f;
     // 증가시킨 에너미 리스포 기간
     float doublingDuration = 10f;
 
@@ -44,14 +44,14 @@ public class EnemySpawner : MonoBehaviour
             // 타이머 초기화
             _timer = 0;
         }
-        // 100초가 지나면
-        if (timeElapsed >= 100f)
+        // 60초가 지나면
+        if (timeElapsed >= 60f)
         {
             // 에너미 리스폰 간격 2배
             currentSpawnInterval = doubleSpawnInterval;
         }
         // 30초 이후에는
-        if (timeElapsed >= 130f) 
+        if (timeElapsed >= 90f) 
         {
             // 다시 초기 간격으로 변경
             currentSpawnInterval = initalSpawnInterval;
