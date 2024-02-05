@@ -28,10 +28,15 @@ public class Enemy : MonoBehaviour
     public GameObject BioFuel_Yellow;
 
     private Vector3 deathPosition; // 에너미 죽은 위치 저장
+    
+   
 
     void Start()
     {
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
+        
+        
+       
     }
 
 
@@ -76,6 +81,7 @@ public class Enemy : MonoBehaviour
                 // Destroy(gameObject);
                 gameObject.SetActive(false);
                 MakeBioFuel();
+               
             }
             Collider.gameObject.SetActive(false);
         }
