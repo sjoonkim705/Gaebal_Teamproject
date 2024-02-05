@@ -12,11 +12,11 @@ public class EnemySpawner : MonoBehaviour
     // 경과 시간 측정
     public float timeElapsed;
     // 초기 에너미 리스폰 간격
-    float initalSpawnInterval = 0.5f;
+    float initalSpawnInterval = 2f;
     // 현재 에너미 리스폰 간격
     float currentSpawnInterval;
     // 증가시킬 에너미 리스폰 간격
-    float doubleSpawnInterval = 0.2f;
+    float doubleSpawnInterval = 0.1f;
     // 증가시킨 에너미 리스포 기간
     float doublingDuration = 10f;
 
@@ -45,25 +45,26 @@ public class EnemySpawner : MonoBehaviour
             _timer = 0;
         }
         // 100초가 지나면
-        if (timeElapsed >= 100f) 
+        if (timeElapsed >= 100f)
         {
             // 에너미 리스폰 간격 2배
             currentSpawnInterval = doubleSpawnInterval;
-            
         }
         // 30초 이후에는
-        if (timeElapsed >= 30f)
+        if (timeElapsed >= 130f) 
         {
             // 다시 초기 간격으로 변경
             currentSpawnInterval = initalSpawnInterval;
+
             timeElapsed = 0f;
         }
+       
     }
     // 에너미 리스폰 메서드
     void Spawn() 
     {
         // 게임 매니저에서 오브젝트 풀에서 에너미를 가져와 생성
-        GameObject enemy = GameManager.Instance.pool.Get(Random.Range(0, 1));
+        GameObject enemy = GameManager.Instance.pool.Get(Random.Range(0, 2));
         // 랜덤한 위치에 에너미 배치
         enemy.transform.position = spawnPoint[Random.Range(1, spawnPoint.Length)].position;
     }

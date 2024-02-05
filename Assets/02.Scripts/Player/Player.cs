@@ -13,8 +13,7 @@ public class Player : MonoBehaviour
     public int _playerHealth;
     public int PlayerMaxHealth;
 
-    //private int _playerHealth;
-    //private int _playerMaxHealth;
+    public GameObject EnabledWeapon;
 
     private Rigidbody2D playerRigid;
 
@@ -131,7 +130,7 @@ public class Player : MonoBehaviour
 
 
         Vector2 nextPos = InputVec * Speed;
-        GetComponent<Rigidbody2D>().velocity = nextPos;
+        playerRigid.velocity = nextPos;
 
 
         if (InputVec.x < 0)

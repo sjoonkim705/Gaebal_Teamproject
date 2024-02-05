@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Kunai_bullet : MonoBehaviour
+public class Kunai_Upgraded_bullet : MonoBehaviour
 {
     public Vector2 dir;
     private float _bulletSpeed = 13f;
     public Transform Target;
     public WeaponType WType;
+
     public void SetBulletSpeed(float speed)
     {
         _bulletSpeed = speed;
@@ -19,11 +20,10 @@ public class Kunai_bullet : MonoBehaviour
         Target = target;
     }
 
-    private void Awake()
-    { 
-        WType = WeaponType.Kunai;
+    void Start()
+    {
+        WType = WeaponType.Kunai_Upgrade;
     }
-
     void OnEnable()
     {
         if (Target != null)
@@ -37,11 +37,12 @@ public class Kunai_bullet : MonoBehaviour
         }
 
     }
-
-    void FixedUpdate()
+    // Update is called once per frame
+    void Update()
     {
         Vector3 newPos = dir * _bulletSpeed * Time.fixedDeltaTime;
         transform.position += newPos;
+
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -50,5 +51,4 @@ public class Kunai_bullet : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
-
 }

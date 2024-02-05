@@ -198,7 +198,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6
+  orthographic size: 8
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -666,11 +666,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damage: 0
-  Count: 0
   CoolTime: 0
   Bullet_prefab: {fileID: 8403677243194927541, guid: 4d5dad43e65805f4faf29dac0b43e40b, type: 3}
+  Bullet_upgraded_prefab: {fileID: 8403677243194927541, guid: fc0ee0e0d9883dc4899c27dbc42806f8, type: 3}
   Target: {fileID: 0}
   WType: 0
+  WeaponLevel: 0
 --- !u!1 &838368835
 GameObject:
   m_ObjectHideFlags: 0
@@ -916,7 +917,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 6678347428769072923, guid: 84cc25e7bc81a54498a40b300e02b212, type: 3}
+  - {fileID: 3145037649074543122, guid: f3be381cc35a8334eb48dce6ebb9247d, type: 3}
+  - {fileID: 5929189682227342360, guid: b69f8827e47d25941919d1624344b4a6, type: 3}
 --- !u!4 &1594869387
 Transform:
   m_ObjectHideFlags: 0
@@ -1009,6 +1011,37 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1881084146
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1881084147}
+  m_Layer: 0
+  m_Name: SoundManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1881084147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1881084146}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 138, y: 291, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2092447381
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,6 +1096,9 @@ MonoBehaviour:
   scanner: {fileID: 0}
   Speed: 5
   LevelCount: 0
+  _playerHealth: 0
+  PlayerMaxHealth: 0
+  EnabledWeapon: {fileID: 699115625}
   PlayerLevel: 0
 --- !u!70 &2092447384
 CapsuleCollider2D:
@@ -1348,3 +1384,4 @@ SceneRoots:
   - {fileID: 924997048}
   - {fileID: 2092447387}
   - {fileID: 234008434}
+  - {fileID: 1881084147}

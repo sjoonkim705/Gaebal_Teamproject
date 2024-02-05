@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public enum WeaponType
 {
@@ -11,7 +12,7 @@ public enum WeaponType
     Shield_Upgrade,
 }
 
-public class Weapon : MonoBehaviour
+public class WeaponUpgraded : MonoBehaviour
 {
     private int _poolSize;
     public float Damage;
@@ -19,9 +20,9 @@ public class Weapon : MonoBehaviour
     public float CoolTime;
     private Player _player;
     public GameObject Bullet_prefab;
+
     private float _timer;
     public Transform Target;
-    public WeaponType WType;
     private List<GameObject> _bulletPool;
     public int WeaponLevel;
 
@@ -39,39 +40,39 @@ public class Weapon : MonoBehaviour
         _player = GetComponentInParent<Player>();
         _poolSize = 20;
         _bulletPool = new List<GameObject>();
-       _timer = 0;
+        _timer = 0;
         fireCount = 0;
-        if (WType == WeaponType.Kunai)
-        {
-            CoolTime = 1.5f;
-        }
-        else if (WType == WeaponType.Kunai_Upgrade)
-        {
-            CoolTime = 0.2f;
-        }
+        CoolTime = 1.5f;
     }
     void Start()
     {
-
         for (int i = 0; i < _poolSize; i++)
         {
-                GameObject kunai = GameObject.Instantiate(Bullet_prefab);
-                _bulletPool.Add(kunai);
-                kunai.SetActive(false);
+            GameObject kunai = GameObject.Instantiate(Bullet_prefab);
+            _bulletPool.Add(kunai);
+            kunai.SetActive(false);
         }
 
     }
 
-  
+
     void Update()
     {
+        _timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            WeaponLevel++;
-            Debug.Log($"WLevel= {WeaponLevel}");
+            if (WeaponLevel < MAX_WEAPON_LEVEL)
+            {
+                WeaponLevel++;
+                Debug.Log($"WLevel= {WeaponLevel}");
+            }
+        }
+        if (WeaponLevel <= MAX_WEAPON_LEVEL)
+        {
+            RepeatFire(WeaponLevel);
         }
 
-        RepeatFire(WeaponLevel);
+
 
     }
 
@@ -84,7 +85,6 @@ public class Weapon : MonoBehaviour
         }
 
         Target = _player.scanner.nearestTarget;
-        _timer += Time.deltaTime;
 
 
         if (_timer > CoolTime && Target != null && _isFiring == false) // 쿨타임당 첫발 사격
@@ -121,25 +121,24 @@ public class Weapon : MonoBehaviour
     public void SingleFire()
     {
 
-            if (!_player.scanner.nearestTarget)
-            {
-                return;
-            }
-
-            GameObject bullet = null;
-            foreach (GameObject b in _bulletPool)
-            {
-                if (b.activeInHierarchy == false)
-                {
-                    bullet = b;
-                    break;
-                }
-            }
-            bullet.GetComponent<Kunai_bullet>().SetTarget(_player.scanner.nearestTarget);
-            bullet.transform.position = this.transform.position;
-            bullet.SetActive(true);
+        if (!_player.scanner.nearestTarget)
+        {
+            return;
         }
-        
 
-
+        GameObject bullet = null;
+        foreach (GameObject b in _bulletPool)
+        {
+            if (b.activeInHierarchy == false)
+            {
+                bullet = b;
+                break;
+            }
+        }
+        bullet.GetComponent<Kunai_bullet>().SetTarget(_player.scanner.nearestTarget);
+        bullet.transform.position = this.transform.position;
+        bullet.SetActive(true);
     }
+
+
+}
