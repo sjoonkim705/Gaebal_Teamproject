@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     public Scanner scanner;
     public float Speed;
     public float LevelCount;
+    public float expRequired;
+
 
     public int _playerHealth;
     public int PlayerMaxHealth;
@@ -56,7 +58,7 @@ public class Player : MonoBehaviour
     {
         InputVec.x = Input.GetAxis("Horizontal");
         InputVec.y = Input.GetAxis("Vertical");
-        int expRequired = (PlayerLevel + 1) * 10;
+        expRequired = (PlayerLevel + 1) * 10;
 
         if (LevelCount >= expRequired)
         {
