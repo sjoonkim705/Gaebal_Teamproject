@@ -52,7 +52,6 @@ public class WeaponUpgraded : MonoBehaviour
             _bulletPool.Add(kunai);
             kunai.SetActive(false);
         }
-
     }
 
 
@@ -71,9 +70,6 @@ public class WeaponUpgraded : MonoBehaviour
         {
             RepeatFire(WeaponLevel);
         }
-
-
-
     }
 
     private void RepeatFire(int numberOfShots)
@@ -85,7 +81,6 @@ public class WeaponUpgraded : MonoBehaviour
         }
 
         Target = _player.scanner.nearestTarget;
-
 
         if (_timer > CoolTime && Target != null && _isFiring == false) // 쿨타임당 첫발 사격
         {

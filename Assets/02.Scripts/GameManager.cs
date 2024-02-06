@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Instance = this;
-
     }
 
     // Update is called once per frame
