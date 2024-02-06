@@ -12,15 +12,27 @@ public class GameManager : MonoBehaviour
     public Item_UI itemUi;
     public bool isLive;
 
-    void Start()
+    private void Awake()
     {
         Instance = this;
+<<<<<<< HEAD
+=======
+    }
+    void Start()
+    {
+
+
+>>>>>>> 767a2ae4ee9d2b51849da8ddfb02e171e0b54c90
 
     }
 
     void Update()
     {
         GetExp();
+        if (player.PlayerHealth <= 0)
+        {
+            GameOver();
+        }
     }
 
     public void GetExp()
@@ -44,6 +56,11 @@ public class GameManager : MonoBehaviour
             // 레벨 올리기
            // player.PlayerLevel++;
         }
+    }
+    public void GameOver()
+    {
+        Stop();
+
     }
 
     public void Stop()

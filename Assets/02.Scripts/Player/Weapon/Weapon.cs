@@ -12,7 +12,7 @@ public enum WeaponType
     Shield_Upgrade,
 }
 
-public class WeaponUpgraded : MonoBehaviour
+public class Weapon : MonoBehaviour
 {
     private int _poolSize;
     public float Damage;
