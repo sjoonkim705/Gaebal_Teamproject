@@ -8,15 +8,21 @@ public class EnemySpawnUI : MonoBehaviour
     public Animator uianimator;
     public Image  uiImage;
 
+    public Animator uianimator2;
+    public Image uiImage2;
+
     public float timeElapsed;
     // Start is called before the first frame update
     void Start()
     {
-        uiImage = GetComponent<Image>();
-        SpriteOFF();
         uianimator = GetComponent<Animator>();
-        HideUI();
+        uiImage = GetComponent<Image>();
+
+        uianimator2 = GameObject.Find("Image2").GetComponent<Animator>();
+        uiImage2 = GameObject.Find("Image2").GetComponent<Image>();
         
+        SpriteOFF();
+        HideUI();
     }
     private void Update()
     {
@@ -35,20 +41,24 @@ public class EnemySpawnUI : MonoBehaviour
     public void ShowUI() 
     {
         uianimator.enabled = true;
+        uianimator2.enabled = true;
         
     }
     public void HideUI() 
     {
         uianimator.enabled = false;
+        uianimator2.enabled = false;
         
     }
     public void SpriteON() 
     {
         uiImage.enabled = true;
+        uiImage2.enabled = true;
     }
     public void SpriteOFF() 
     {
         uiImage.enabled = false;
+        uiImage2.enabled = false;
     }
    
 }

@@ -15,14 +15,14 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-<<<<<<< HEAD
-=======
+
+
     }
     void Start()
     {
 
 
->>>>>>> 767a2ae4ee9d2b51849da8ddfb02e171e0b54c90
+
 
     }
 
