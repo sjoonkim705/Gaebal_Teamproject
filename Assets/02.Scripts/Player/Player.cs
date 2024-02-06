@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     public float expRequired;
 
 
-    public int _playerHealth;
+    public int PlayerHealth;
     public int PlayerMaxHealth;
 
     public GameObject EnabledWeapon;
@@ -27,12 +27,12 @@ public class Player : MonoBehaviour
 
     public void DecreasePlayerHealth(int amount)
     {
-        if (amount <=0 || _playerHealth <=0)
+        if (amount <=0 || PlayerHealth <=0)
         {
             return;
         }
 
-        _playerHealth -= amount;
+        PlayerHealth -= amount;
     }
     private void Awake()
     {
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     void Start()
     {
         PlayerMaxHealth = 100;
-        _playerHealth = PlayerMaxHealth;
+        PlayerHealth = PlayerMaxHealth;
         PlayerLevel = 0;   // 첫 시작때 경험치, 레벨 0부터 시작
         LevelCount = 0;
 
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
             LevelCount = 0;
             Debug.Log($"LevelUp : Level = {PlayerLevel}");
         }
-        if (_playerHealth <= 0)
+        if (PlayerHealth <= 0)
         {
             DiePlayer();
         }
@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            DecreasePlayerHealth(10);
+            DecreasePlayerHealth(1);
             //Debug.Log("Health Decreased");
         }
         //enemyCollisionTimer = 0;
@@ -99,8 +99,8 @@ public class Player : MonoBehaviour
             dir.Normalize();
             float power = 500f;
             other.collider.GetComponent<Rigidbody2D>().AddForce(dir.normalized * power);
-            _playerHealth -= 10;
-           // Debug.Log($"PlayerHP {_playerHealth}");
+            PlayerHealth -= 10;
+            Debug.Log($"PlayerHP {PlayerHealth}");
         }
 
 /*        Debug.Log(other.tag);

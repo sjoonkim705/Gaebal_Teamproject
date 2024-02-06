@@ -27,9 +27,9 @@ public class Item_energydrink : MonoBehaviour
         {
             _time = 0;
             Player player = FindObjectOfType<Player>();
-            player._playerHealth++;
-            player._playerHealth = Mathf.Clamp(player._playerHealth, 0, player.PlayerMaxHealth);
-            Debug.Log(player._playerHealth);
+            player.PlayerHealth++;
+            player.PlayerHealth = Mathf.Clamp(player.PlayerHealth, 0, player.PlayerMaxHealth);
+            Debug.Log(player.PlayerHealth);
         }
 
     }

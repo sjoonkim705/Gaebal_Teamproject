@@ -9,16 +9,17 @@ public class GameManager : MonoBehaviour
 
     public PoolManager pool;
 
-    public  Item_UI itemUi;
+    public Item_UI itemUi;
     public bool isLive;
 
     void Start()
     {
         Instance = this;
+        // itemUi = GetComponent<Item_UI>();
 
+        itemUi.Hide();
     }
 
-    // Update is called once per frame
     void Update()
     {
         GetExp();
@@ -43,7 +44,7 @@ public class GameManager : MonoBehaviour
             itemUi.Select(0);
 
             // 레벨 올리기
-            player.PlayerLevel++;
+           // player.PlayerLevel++;
         }
     }
 
