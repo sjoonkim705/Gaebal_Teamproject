@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine. UI;
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class EnemySpawner : MonoBehaviour
     // 증가시킨 에너미 리스포 기간
     float doublingDuration = 10f;
 
+    EnemySpawnUI enemySpawnUI;
+    EnemySpawnUI sprite;
+
     private void Awake()
     {
         // 자식 오브젝트 중에 있는 모든 Transform 가져와서 배열에 저장
@@ -27,8 +31,13 @@ public class EnemySpawner : MonoBehaviour
 
         // 초기 에너미 리스폰 간격 설정
         currentSpawnInterval = initalSpawnInterval;
-    }
 
+        GameObject enemySpawnUIObject = GameObject.Find("Image");
+        enemySpawnUI = enemySpawnUIObject.GetComponent<EnemySpawnUI>();
+
+        GameObject enemySpawnUIsprite = GameObject.Find("Image");
+        sprite = enemySpawnUIsprite.GetComponent<EnemySpawnUI>();
+    }
     private void Update()
     {
         // 타이머 업데이트
@@ -44,21 +53,30 @@ public class EnemySpawner : MonoBehaviour
             // 타이머 초기화
             _timer = 0;
         }
-        // 60초가 지나면
-        if (timeElapsed >= 30f)
+
+        if (timeElapsed >= 5f) 
         {
+            sprite.SpriteON();
+            enemySpawnUI.ShowUI();
+        }
+        // 60초가 지나면
+        if (timeElapsed >= 60f)
+        {
+            sprite.SpriteOFF();
+            enemySpawnUI.HideUI();
+
             // 에너미 리스폰 간격 2배
             currentSpawnInterval = doubleSpawnInterval;
         }
+        
         // 30초 이후에는
-        if (timeElapsed >= 50f) 
+        if (timeElapsed >= 90f) 
         {
             // 다시 초기 간격으로 변경
             currentSpawnInterval = initalSpawnInterval;
 
             timeElapsed = 0f;
         }
-       
     }
     // 에너미 리스폰 메서드
     void Spawn() 
