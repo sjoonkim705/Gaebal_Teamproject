@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 public enum EnemyType 
 {
     Enemy1,
@@ -32,6 +33,10 @@ public class Enemy : MonoBehaviour
     public Animator DieE;
     public bool IsDie = false;
 
+    EnemyHitUI hitUI;
+    EnemyHitUI hitsprite;
+
+
 
     private void OnEnable()
     {
@@ -42,7 +47,13 @@ public class Enemy : MonoBehaviour
     {
         IsDie = false;
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
-        
+
+        GameObject hitUIObject = GameObject.Find("Hit");
+        hitUI = hitUIObject.GetComponent<EnemyHitUI>();
+
+        GameObject hitUIsprite = GameObject.Find("Hit");
+        hitsprite = hitUIsprite.GetComponent<EnemyHitUI>();
+
     }
     void FixedUpdate()
     {
@@ -71,8 +82,11 @@ public class Enemy : MonoBehaviour
     {
         if (Collider.tag == "Bullet") // 태그 확인
         {
+            
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
             // Debug.Log("qwe");
+
+            hitsprite.SpriteON();
 
             if (bellet.WType == WeaponType.Kunai)
             {
@@ -87,7 +101,7 @@ public class Enemy : MonoBehaviour
             {
                 IsDie = true;
                 Invoke("DieEnemy", 1f);
-                
+                hitsprite.SpriteOFF();
 
             }
             Collider.gameObject.SetActive(false);

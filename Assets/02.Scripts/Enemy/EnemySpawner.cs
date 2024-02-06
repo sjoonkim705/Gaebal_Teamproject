@@ -24,6 +24,8 @@ public class EnemySpawner : MonoBehaviour
     EnemySpawnUI enemySpawnUI;
     EnemySpawnUI sprite;
 
+    
+
     private void Awake()
     {
         // 자식 오브젝트 중에 있는 모든 Transform 가져와서 배열에 저장
@@ -37,6 +39,8 @@ public class EnemySpawner : MonoBehaviour
 
         GameObject enemySpawnUIsprite = GameObject.Find("Image");
         sprite = enemySpawnUIsprite.GetComponent<EnemySpawnUI>();
+
+        
     }
     private void Update()
     {
