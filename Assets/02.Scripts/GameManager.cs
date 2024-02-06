@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         Instance = this;
+<<<<<<< HEAD
+=======
         // itemUi = GetComponent<Item_UI>();
 
         itemUi.Hide();
+>>>>>>> 42f5ed940370f978e2b79e27fa8e30d314281c63
     }
 
     void Update()
