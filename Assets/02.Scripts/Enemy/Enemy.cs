@@ -29,20 +29,31 @@ public class Enemy : MonoBehaviour
 
     private Vector3 deathPosition; // 에너미 죽은 위치 저장
 
-    public Animator EnemyDie;
+    public Animator DieE;
+    public bool IsDie = false;
 
 
-
+    private void OnEnable()
+    {
+        IsDie = false;
+    }
 
     void Start()
     {
+        IsDie = false;
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
+        
     }
     void FixedUpdate()
     {
+
         EnemyMove();
+        
+
 
         EnemySpriter.flipX = target.transform.position.x < this.transform.position.x; // 2번
+
+        DieE.SetBool("IsDie", IsDie);
     }
     void EnemyMove() // 1번
     {
@@ -68,18 +79,29 @@ public class Enemy : MonoBehaviour
                 Health -= 1;
                 // Debug.Log($"체력{Health}");
             }
+            else if (bellet.WType == WeaponType.Kunai_Upgrade)
+            {
+                Health -= 2;
+            }
             if (Health <= 0)
             {
-                deathPosition = transform.position;
+                IsDie = true;
+                Invoke("DieEnemy", 1f);
                 
-                // Destroy(gameObject);
-                gameObject.SetActive(false);
-                MakeBioFuel();
 
-                
             }
             Collider.gameObject.SetActive(false);
         }
+    }
+    public void DieEnemy() 
+    {
+        deathPosition = transform.position;
+   
+
+
+        // Destroy(gameObject);
+        gameObject.SetActive(false);
+        MakeBioFuel();
     }
     public void MakeBioFuel()
     {

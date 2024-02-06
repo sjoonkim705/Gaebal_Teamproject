@@ -25,8 +25,8 @@ public class Item_health : MonoBehaviour
         if (CompareTag("Player"))
         {
             Player player = gameObject.GetComponent<Player>();
-            player._playerHealth = player.PlayerMaxHealth;
-            Debug.Log(player._playerHealth);
+            player.PlayerHealth = player.PlayerMaxHealth;
+            Debug.Log(player.PlayerHealth);
             this.gameObject.SetActive(false);
         }
     }

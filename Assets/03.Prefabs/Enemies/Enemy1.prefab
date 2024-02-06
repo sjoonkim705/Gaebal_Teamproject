@@ -107,7 +107,8 @@ MonoBehaviour:
   BioFuel_Green: {fileID: 8196418416276026524, guid: a278e81712582d349a08a91d359a1dd9, type: 3}
   BioFuel_Blue: {fileID: 7655265004665779348, guid: 212570211c8baca4d8bb2e5bc9e18a7b, type: 3}
   BioFuel_Yellow: {fileID: 1590291140030563697, guid: 7dcc7b23e29402847a8c49f21cbc00a2, type: 3}
-  EnemyDie: {fileID: 878225585396933459}
+  DieE: {fileID: 878225585396933459}
+  IsDie: 0
 --- !u!50 &129783176734811713
 Rigidbody2D:
   serializedVersion: 4
