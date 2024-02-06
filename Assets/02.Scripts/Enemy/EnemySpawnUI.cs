@@ -6,15 +6,31 @@ using UnityEngine.UI;
 public class EnemySpawnUI : MonoBehaviour
 {
     public Animator uianimator;
-    SpriteRenderer  spriteRenderer;
+    public Image  uiImage;
+
+    public float timeElapsed;
     // Start is called before the first frame update
     void Start()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        uiImage = GetComponent<Image>();
         SpriteOFF();
         uianimator = GetComponent<Animator>();
         HideUI();
         
+    }
+    private void Update()
+    {
+        /**timeElapsed += Time.deltaTime;
+        if (timeElapsed >= 3f) 
+        {
+            SpriteON();
+            ShowUI();
+        }
+        if (timeElapsed >= 5f) 
+        {
+            SpriteOFF();
+            HideUI();
+        }**/
     }
     public void ShowUI() 
     {
@@ -28,11 +44,11 @@ public class EnemySpawnUI : MonoBehaviour
     }
     public void SpriteON() 
     {
-        spriteRenderer.enabled = true;
+        uiImage.enabled = true;
     }
     public void SpriteOFF() 
     {
-        spriteRenderer.enabled = false;
+        uiImage.enabled = false;
     }
    
 }
