@@ -7,14 +7,16 @@ using UnityEngine.UI;
 public class PlayerHealthBar : MonoBehaviour
 {
     private Slider _mySlider;
-    //private Player _player;
     private float _playerHealth;
     private float _MaxHealth;
+    public Image HealthBarFill;
+
 
     private void Awake()
     {
-        //_player = GameManager.Instance.player.GetComponent<Player>();
         _mySlider = GetComponent<Slider>();
+        //HealthBarFill = GetComponent<Image>();
+
 
     }
 
@@ -32,5 +34,17 @@ public class PlayerHealthBar : MonoBehaviour
         _MaxHealth = GameManager.Instance.player.PlayerMaxHealth;
         _playerHealth = GameManager.Instance.player.PlayerHealth;
         _mySlider.value = _playerHealth/_MaxHealth;
+        if (_mySlider.value > 0.8f)
+        {
+            HealthBarFill.color = Color.green;
+        }
+        else if ( _mySlider.value > 0.4f)
+        {
+            HealthBarFill.color = Color.yellow;
+        }
+        else
+        {
+            HealthBarFill.color = Color.red;
+        }
     }
 }

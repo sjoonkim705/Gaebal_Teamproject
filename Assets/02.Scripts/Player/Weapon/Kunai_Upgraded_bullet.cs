@@ -5,7 +5,7 @@ using UnityEngine;
 public class Kunai_Upgraded_bullet : MonoBehaviour
 {
     public Vector2 dir;
-    private float _bulletSpeed = 13f;
+    private float _bulletSpeed = 10f;
     public Transform Target;
     public WeaponType WType;
 

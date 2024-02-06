@@ -40,13 +40,13 @@ public class Player : MonoBehaviour
     {
         scanner = GetComponent<Scanner>();
         playerRigid = GetComponent<Rigidbody2D>();
-
+        PlayerMaxHealth = 100;
+        PlayerHealth = PlayerMaxHealth;
 
     }
     void Start()
     {
-        PlayerMaxHealth = 100;
-        PlayerHealth = PlayerMaxHealth;
+
         PlayerLevel = 0;   // 첫 시작때 경험치, 레벨 0부터 시작
         LevelCount = 0;
 
