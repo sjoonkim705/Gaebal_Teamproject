@@ -35,7 +35,7 @@ public class HUD : MonoBehaviour
                 float maxExp = GameManager.Instance.player.expRequired;
                 int sliderValue = (int)curExp * 20 / (int)maxExp;
                 _imageComponent.sprite = images[sliderValue];
-                // Debug.Log(sliderValue);
+
                 break;            
 
             case InfoType.Level:

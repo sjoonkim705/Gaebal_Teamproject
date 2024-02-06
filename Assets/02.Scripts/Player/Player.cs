@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D playerRigid;
 
     public int PlayerLevel;
+    private float _enemyCollisionTimer;
+
 
     private SpriteRenderer _playerSr = null;
     WeaponType WType;
@@ -76,56 +78,27 @@ public class Player : MonoBehaviour
     {
         PlayerMove();
     }
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag("Enemy"))
-        {
-            DecreasePlayerHealth(1);
-            //Debug.Log("Health Decreased");
-        }
-        //enemyCollisionTimer = 0;
-
-    }
-
-    
 
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        //Debug.Log(other.collider.tag);
-        if(other.collider.CompareTag("Enemy"))
+
+        if (other.collider.CompareTag("Enemy"))
         {
-            Vector2 dir = other.transform.position - transform.position ;
+            Vector2 dir = other.transform.position - transform.position;
             dir.Normalize();
             float power = 500f;
-            other.collider.GetComponent<Rigidbody2D>().AddForce(dir.normalized * power);
-            PlayerHealth -= 10;
+            other.collider.GetComponent<Rigidbody2D>().AddForce(dir.normalized * power); //적 밀어냄
+            PlayerHealth -= 1;
             Debug.Log($"PlayerHP {PlayerHealth}");
         }
-
-/*        Debug.Log(other.tag);
-
-        if (other.CompareTag("Enemy"))
-        {
-            enemyCollisionTimer += Time.fixedDeltaTime;
-            if (enemyCollisionTimer > 0.2f)
-            {
-                DecreasePlayerHealth(10);
-               // Debug.Log($"{_playerHealth}");
-                enemyCollisionTimer = 0;
-            }
-        }*/
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-
     }
 
     private void DiePlayer()
     {
         /*        _playerSr.flipX = false;
                 transform.rotation = UnityEngine.Quaternion.Euler(new Vector3(0, 0, 90));*/
-  //      Debug.Log("Player Died");
+       Debug.Log("Player Died");
     }
     private void PlayerMove()
     {
