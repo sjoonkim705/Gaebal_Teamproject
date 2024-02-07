@@ -9,6 +9,7 @@ public class Kunai_bullet : MonoBehaviour
     public Transform Target;
     public WeaponType WType;
     public SpriteRenderer mySpriteRender;
+    public Sprite KunaiUpgradeSprite;
     public int Level;
 
     public void SetBulletSpeed(float speed)
@@ -30,6 +31,13 @@ public class Kunai_bullet : MonoBehaviour
     {
         if (Target != null)
         {
+            if (Level == 6) // kunai_upgraded 초기화
+            {
+                WType = WeaponType.Kunai_Upgrade;
+                mySpriteRender = GetComponent<SpriteRenderer>();
+                mySpriteRender.sprite = KunaiUpgradeSprite;
+                SetBulletSpeed(15f);
+            }
             dir = Target.transform.position - GameManager.Instance.player.transform.position;
             dir = dir.normalized;
             float radianTarget = Mathf.Atan2(dir.y, dir.x); // 총알이 적 방향을 향함

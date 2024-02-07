@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
     private int fireCount;
 
 
+
     private void Awake()
     {
         WeaponLevel = 1;
@@ -136,7 +137,14 @@ public class Weapon : MonoBehaviour
             }
         }
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Fire);
-        bullet.GetComponent<Kunai_bullet>().SetTarget(_player.scanner.nearestTarget);
+        //bullet.GetComponent<Kunai_bullet>().
+        Kunai_bullet bulletinfo = bullet.GetComponent<Kunai_bullet>();
+        bulletinfo.SetTarget(_player.scanner.nearestTarget);
+        bulletinfo.Level = WeaponLevel;
+        if (bulletinfo.Level == 6)
+        {
+            bulletinfo.WType = WeaponType.Kunai_Upgrade;
+        }
         bullet.transform.position = this.transform.position;
         bullet.SetActive(true);
     }
