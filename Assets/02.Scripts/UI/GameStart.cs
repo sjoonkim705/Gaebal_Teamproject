@@ -15,7 +15,7 @@ public class GameStart : MonoBehaviour
 
     void Start()
     {
-        shakeDuration = 0.5f;
+        shakeDuration = 3f;
         shakeAmount = 0.05f;
         decreaseFactor = 1.0f;
 
