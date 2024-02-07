@@ -14,7 +14,12 @@ public class Item_magnet : MonoBehaviour
 
     private void Start()
     {
-
+        this.gameObject.SetActive(true);
+        Player ply = FindObjectOfType<Player>();
+        this.transform.position = ply.transform.position;
+        _dir.Normalize();
+        float speed = 5f;
+        transform.position += (Vector3)_dir * speed * Time.deltaTime;
     }
 
     private void Update()
@@ -51,11 +56,15 @@ public class Item_magnet : MonoBehaviour
                     break; // 하나의 마그넷에만 반응하도록 합니다.
                 }
             }
+        Player ply = FindObjectOfType<Player>();
+        this.transform.position = ply.transform.position;
+        _dir.Normalize();
+        float speed = 5f;
+        transform.position += (Vector3)_dir * speed * Time.deltaTime;
+        /*        GameObject _target = GameObject.FindGameObjectWithTag("Player");
+                _target.transform.position -= transform.position;*/
 
-/*        GameObject _target = GameObject.FindGameObjectWithTag("Player");
-        _target.transform.position -= transform.position;*/
-        
-        
+
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

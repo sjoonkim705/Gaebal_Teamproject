@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
 {
@@ -50,15 +51,15 @@ public class GameManager : MonoBehaviour
         {
             // 아이템 표시 및 선택
 
-/*            itemUi.Show();
-            itemUi.Select(3);*/
+            /*            itemUi.Show();
+                        itemUi.Select(3);*/
 
              itemUi.Show();
-             itemUi.Select(0);
+            itemUi.Select(Random.Range(0, itemUi.itemPrefabs.Length));
 
 
             // 레벨 올리기
-           // player.PlayerLevel++;
+            // player.PlayerLevel++;
         }
     }
     public void GameOver()

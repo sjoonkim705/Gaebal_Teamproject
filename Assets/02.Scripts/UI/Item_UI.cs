@@ -43,6 +43,8 @@ public class Item_UI : MonoBehaviour
     {
         /*        Item_energydrink energyDrinkItem = GetComponent<Item_energydrink>();
                 energyDrinkItem.EnergyDrinking();*/
+        image = GetComponentInChildren<Image>();
+        image.enabled = true;
         rect.localScale = Vector3.one;
         GameManager gameManager = GameManager.Instance;
         GameManager.Instance.Stop();
@@ -95,6 +97,7 @@ public class Item_UI : MonoBehaviour
                     Item_health healthItem = new Item_health();
                     Collider2D collider2D = GetCollisionCollider();
                     healthItem.HealthFull(collider2D);
+                    gameObject.SetActive(true);
                     Debug.Log("Health Item spawned.");
                     break;
                 case 1: // Item_Magnet
@@ -102,7 +105,9 @@ public class Item_UI : MonoBehaviour
                     if (item_Shoes != null)
                     {
                         item_Shoes.GetComponent<Item_shoes>().ShoesSpeed();
+                        gameObject.SetActive(true);
                         Debug.Log("스피드 증가");
+
                    }
                     Debug.Log("Magnet Item spawned.");
                     break;
@@ -125,6 +130,7 @@ public class Item_UI : MonoBehaviour
                                             shieldItem.SetShieldRadius(2.5f);
                                             Debug.Log("방어력 생성");
                                         }*/
+                    gameObject.SetActive(true);
                     Debug.Log("Shield Item spawned.");
                     break;
                 default:

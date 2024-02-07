@@ -9,7 +9,7 @@ public class Item_shoes : MonoBehaviour
     private void Start()
     {
         GameObject playerObj = GameObject.FindWithTag("Player");
-        this.gameObject.SetActive(false);
+
     }
     // Update is called once per frame
     void Update()
