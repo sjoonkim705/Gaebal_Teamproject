@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     public int channels;
     AudioSource[] sfxPlayers;
     int channelIndex;
-    public enum Sfx { ExpItem, OtherItem, Fire, LevelUp }
+    public enum Sfx { ExpItem, OtherItem, Fire, LevelUp, Bomb}
 
     private void Awake()
     {
@@ -56,12 +56,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySfx(Sfx sfx)
     {
-        for (int i = 0; i < sfxPlayers.Length;i++)
+        for (int i = 0; i < sfxPlayers.Length; i++)
         {
             int loopIndex = (i + channelIndex) % sfxPlayers.Length;
 
-            if (sfxPlayers[loopIndex].isPlaying) 
-            { 
+            if (sfxPlayers[loopIndex].isPlaying)
+            {
                 continue;
             }
             channelIndex = loopIndex;
