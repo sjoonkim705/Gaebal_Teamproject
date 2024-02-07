@@ -31,6 +31,7 @@ public class Item_bomb : MonoBehaviour
                 Enemy enemy = enemies[i].GetComponent<Enemy>();
                 enemy.gameObject.SetActive(false);
                 enemy.MakeBioFuel();
+                
             }
 
             _flashEffect.Flash();

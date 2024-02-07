@@ -95,6 +95,7 @@ public class Enemy : MonoBehaviour
             }
             Collider.gameObject.SetActive(false);
         }
+       
     }
     public void DieEnemy() 
     {
