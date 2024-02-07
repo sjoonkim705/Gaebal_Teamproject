@@ -22,6 +22,7 @@ public class GameStart : MonoBehaviour
 
     }
 
+
     IEnumerator SwitchSprites()
     {
         while (true)
