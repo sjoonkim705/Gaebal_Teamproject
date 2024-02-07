@@ -107,6 +107,7 @@ public class Player : MonoBehaviour
             float power = 500f;
             other.collider.GetComponent<Rigidbody2D>().AddForce(dir.normalized * power); //적 밀어냄
             PlayerHealth -= 1;
+            PlayerAnimator.Play("PlayerHit");
             Debug.Log($"PlayerHP {PlayerHealth}");
         }
     }
