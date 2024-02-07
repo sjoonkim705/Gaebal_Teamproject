@@ -80,12 +80,12 @@ public class Enemy : MonoBehaviour
 
             if (bellet.WType == WeaponType.Kunai)
             {
-                Health -= 1;
+                Health--;
                 // Debug.Log($"체력{Health}");
             }
             else if (bellet.WType == WeaponType.Kunai_Upgrade)
             {
-                Health -= 2;
+                Health--;
             }
             if (Health <= 0)
             {
