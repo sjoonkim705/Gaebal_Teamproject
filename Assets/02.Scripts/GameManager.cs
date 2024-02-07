@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance;
+    public static GameManager Instance{ get; private set; }
     public Player player;
 
     public PoolManager pool;
@@ -14,8 +14,15 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
-
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // 옵션: 씬이 변경되어도 파괴되지 않음
+        }
+        else
+        {
+            Destroy(gameObject); // 이미 인스턴스가 존재하면 중복 인스턴스 파괴
+        }
     }
     void Start()
     {
@@ -50,7 +57,7 @@ public class GameManager : MonoBehaviour
         {
             // 아이템 표시 및 선택
             itemUi.Show();
-            itemUi.Select(0);
+            itemUi.Select(3);
 
             // 레벨 올리기
            // player.PlayerLevel++;

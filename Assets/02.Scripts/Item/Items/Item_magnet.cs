@@ -19,7 +19,6 @@ public class Item_magnet : MonoBehaviour
 
     private void Update()
     {
-
         
         /**
         // 1. 플레이어를 찾고
