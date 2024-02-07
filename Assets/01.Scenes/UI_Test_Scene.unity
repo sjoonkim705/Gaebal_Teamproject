@@ -1592,7 +1592,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &879059067
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2147,6 +2147,7 @@ MonoBehaviour:
   pool: {fileID: 811374578}
   itemUi: {fileID: 0}
   isLive: 1
+  ending: {fileID: 0}
 --- !u!4 &1060541152
 Transform:
   m_ObjectHideFlags: 0
@@ -2257,7 +2258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1269319800
 MonoBehaviour:
   m_ObjectHideFlags: 0

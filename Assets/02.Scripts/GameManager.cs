@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public Item_UI itemUi;
     public bool isLive;
+
 
     private void Awake()
     {
@@ -71,7 +73,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Stop();
-
+ 
     }
 
     public void Stop()
