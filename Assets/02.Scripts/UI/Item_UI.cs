@@ -1,16 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class Item_UI : MonoBehaviour
 {
 
     RectTransform rect;
+    Image image;
+    public Item_energydrink Energydrink;
+    public Item_shoes shoes;
     public Item_Shield shieldItem;
-    // Start is called before the first frame update
+    public Item_magnet Magnet;
+    // Start is called before the first frame updatez 
     private void Awake()
     {
         rect = GetComponent<RectTransform>();
+        image = GetComponentInChildren<Image>();
+        Hide();
         shieldItem = GetComponent<Item_Shield>();
     }
     private void Start()
@@ -31,10 +40,24 @@ public class Item_UI : MonoBehaviour
     public void Show()
     {
         rect.localScale = Vector3.one;
+        Debug.Log("UI나오나?");
+        // 이미지 컴포넌트가 null이 아닌 경우에만 활성화합니다.
+        if (image != null)
+        {
+            image.enabled = true; // 이미지를 활성화합니다.
+        }
+        else
+        {
+            Debug.LogError("Image component is null!");
+        }
+
         GameManager.Instance.Stop();
     }
     public void Hide()
     {
+        image = GetComponentInChildren<Image>();
+        image.enabled = false;
+        Debug.Log("UI사라지나?");
         rect.localScale = Vector3.zero;
         GameManager.Instance.Resume();
     }
@@ -76,6 +99,16 @@ public class Item_UI : MonoBehaviour
                 break;
         }
     }
+
+    public void OnClickDRINK() 
+    {
+/*        Item_energydrink energyDrinkItem = GetComponent<Item_energydrink>();
+        energyDrinkItem.EnergyDrinking();*/
+        rect.localScale = Vector3.one;
+        GameManager.Instance.Stop();
+        Debug.Log("click");
+    }
+
     Collider2D GetCollisionCollider()
     {
         // 실제로는 다른 스크립트에서 어떻게 Collider2D를 가져올지에 따라 코드가 달라질 수 있음
