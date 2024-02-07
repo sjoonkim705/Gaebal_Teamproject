@@ -54,10 +54,10 @@ public class GameManager : MonoBehaviour
             /*            itemUi.Show();
                         itemUi.Select(3);*/
 
-
+/*
              itemUi.Show();
             itemUi.Select(1);
-            itemUi.Select(3);
+            itemUi.Select(3);*/
 
             /*            itemUi.Show();
                         itemUi.Select(0);*/

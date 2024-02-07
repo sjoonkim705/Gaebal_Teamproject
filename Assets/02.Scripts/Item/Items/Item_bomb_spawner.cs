@@ -2,12 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Item_bomb_spawner : MonoBehaviour
+public class Item_Bomb_spawner : MonoBehaviour
 {
     public float SpawnTime = 1.2f;
     public float CurrentTimer = 0;
     public float MinTime = 0.1f;
-    public float MaxTime = 10.0f;
+    public float MaxTime = 25.0f;
 
     public GameObject Bomb;
     private void Start()

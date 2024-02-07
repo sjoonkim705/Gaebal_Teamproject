@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RandomItemSpawner : MonoBehaviour
@@ -8,7 +9,7 @@ public class RandomItemSpawner : MonoBehaviour
 
     private void Start()
     {
-     //   SpawnRandomItems();
+      //   SpawnRandomItems();
     }
 
     private void Update()
@@ -20,12 +21,12 @@ public class RandomItemSpawner : MonoBehaviour
 
 
     // 랜덤 아이템 생성 메서드
-/*    public void SpawnRandomItems()
+ /* public void SpawnRandomItems()
     {
         for (int i = 0; i < 2; i++)
         {
             int randomIndex = Random.Range(0, itemUI.itemPrefabs.Length);
-
+            randomIndex.Yield();
         }
     }*/
     /*    private void SpawnImagesForLevel(int level)

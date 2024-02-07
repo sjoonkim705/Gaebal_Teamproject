@@ -52,7 +52,7 @@ public class Item_UI : MonoBehaviour
     }
     public void Show()
     {
-        rect.localScale = Vector3.one;
+/*        rect.localScale = Vector3.one;*/
         Debug.Log("UI나오나?");
         // 이미지 컴포넌트가 null이 아닌 경우에만 활성화합니다.
         if (image != null)
@@ -71,7 +71,7 @@ public class Item_UI : MonoBehaviour
         image = GetComponentInChildren<Image>();
         image.enabled = false;
         Debug.Log("UI사라지나?");
-        rect.localScale = Vector3.zero;
+          rect.localScale = Vector3.zero;
 
         if (GameManager.Instance != null)
         {
@@ -83,7 +83,7 @@ public class Item_UI : MonoBehaviour
         }
     }
 
-
+/*
     public void Select(int index)
     {
         if (index >= 0 && index < itemPrefabs.Length)
@@ -122,14 +122,14 @@ public class Item_UI : MonoBehaviour
                     Debug.Log("Energy Drink Item spawned.");
                     break;
                 case 3: // Item_Shield
-                    /*                    Item_Shield shieldItem = new Item_Shield();
+                    *//*                    Item_Shield shieldItem = new Item_Shield();
                                         if (shieldItem != null)
                                         {
                                             Collider2D collisionCollider = GetCollisionCollider();
                                             shieldItem.HandleEnemyCollision(collisionCollider);
                                             shieldItem.SetShieldRadius(2.5f);
                                             Debug.Log("방어력 생성");
-                                        }*/
+                                        }*//*
                     gameObject.SetActive(false);
                     Debug.Log("Shield Item spawned.");
                     break;
@@ -143,7 +143,7 @@ public class Item_UI : MonoBehaviour
             Debug.LogError("Index out of range.");
         }
     }
-
+*/
 
     /*   public void Select(int index)
        {
