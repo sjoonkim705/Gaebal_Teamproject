@@ -68,9 +68,10 @@ public class Item_UI : MonoBehaviour
         {
             case 0:
                 Item_health healthItem = GetComponent<Item_health>();
+                Collider2D collider2D = GetCollisionCollider();
                 if (healthItem != null)
                 {
-                    healthItem.HealthFull();
+                    healthItem.HealthFull(collider2D);
                 }
 
                 break;

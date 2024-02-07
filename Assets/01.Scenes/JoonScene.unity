@@ -522,6 +522,54 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &562868301
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 562868302}
+  - component: {fileID: 562868303}
+  m_Layer: 0
+  m_Name: Weapon1_Kunai_Upgraded
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &562868302
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562868301}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2092447387}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &562868303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 562868301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d069db15a06f3154aae6f977191ec2de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Damage: 0
+  CoolTime: 0
+  Bullet_prefab: {fileID: 8403677243194927541, guid: fc0ee0e0d9883dc4899c27dbc42806f8, type: 3}
+  Target: {fileID: 0}
 --- !u!1 &616544109
 GameObject:
   m_ObjectHideFlags: 0
@@ -1074,9 +1122,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b8387c0d8ec59194eb561a9503a48fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shakeDuration: 0
-  shakeAmount: 0
-  decreaseFactor: 0
+  sprite1: {fileID: 0}
+  sprite2: {fileID: 0}
+  switchInterval: 0.3
 --- !u!212 &785560676
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1548,8 +1596,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb043c4437f3ef7438e5ab6e7980bade, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmClip: {fileID: 0}
-  bgmVolume: 0
+  bgmClip: {fileID: 8300000, guid: 624719559a255ab49aed244be061b2f6, type: 3}
+  bgmVolume: 0.5
   sfxClips:
   - {fileID: 8300000, guid: 4f322cd12bbc39b40a49ecb53d2da3d7, type: 3}
   - {fileID: 8300000, guid: dff5f1594cc6ebd4ca97cc3bb1d37a77, type: 3}
@@ -2615,6 +2663,7 @@ MonoBehaviour:
   PlayerMaxHealth: 0
   EnabledWeapon: {fileID: 0}
   PlayerLevel: 0
+  itemUI: {fileID: 0}
   PlayerAnimator: {fileID: 0}
 --- !u!70 &2092447384
 CapsuleCollider2D:
@@ -2745,6 +2794,7 @@ Transform:
   m_Children:
   - {fileID: 1798603137}
   - {fileID: 699115626}
+  - {fileID: 562868302}
   - {fileID: 765552027}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
