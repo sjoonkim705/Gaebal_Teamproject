@@ -49,13 +49,13 @@ public class GameManager : MonoBehaviour
         if (player.LevelCount >= expRequired)
         {
             // 아이템 표시 및 선택
-<<<<<<< HEAD
+
 /*            itemUi.Show();
             itemUi.Select(3);*/
-=======
+
             itemUi.Show();
             itemUi.Select(0);
->>>>>>> 116e023ae2ef468155a4410348d4c0fa93964812
+
 
             // 레벨 올리기
            // player.PlayerLevel++;
