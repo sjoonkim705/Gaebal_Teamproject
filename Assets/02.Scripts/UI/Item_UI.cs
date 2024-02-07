@@ -93,27 +93,29 @@ public class Item_UI : MonoBehaviour
 
             switch (index)
             {
-                case 0: // Item_Health
-                    Item_health healthItem = new Item_health();
+                case 0:
+                    Item_health healthItem = newItem.GetComponent<Item_health>(); // 수정
                     Collider2D collider2D = GetCollisionCollider();
-                    healthItem.HealthFull(collider2D);
-                    gameObject.SetActive(true);
-                    Debug.Log("Health Item spawned.");
+                    newItem.SetActive(true); // 수정
+                    if (healthItem != null)
+                    {
+                        healthItem.HealthFull(collider2D);
+                        Debug.Log("Health Item spawned.");
+                    }
                     break;
-                case 1: // Item_Magnet
-                    Item_shoes item_Shoes = new Item_shoes();
+                case 1:
+                    Item_shoes item_Shoes = newItem.GetComponent<Item_shoes>(); // 수정
+                    newItem.SetActive(true); // 수정
                     if (item_Shoes != null)
                     {
-                        item_Shoes.GetComponent<Item_shoes>().ShoesSpeed();
-                        gameObject.SetActive(true);
+                        item_Shoes.ShoesSpeed();
                         Debug.Log("스피드 증가");
-
-                   }
+                    }
                     Debug.Log("Magnet Item spawned.");
                     break;
-                case 2: // Item_Energydrink
-                    Item_energydrink energyDrinkItem = GetComponent<Item_energydrink>();
-                    gameObject.SetActive(true);
+                case 2:
+                    Item_energydrink energyDrinkItem = newItem.GetComponent<Item_energydrink>(); // 수정
+                    newItem.SetActive(true); // 수정
                     if (energyDrinkItem != null)
                     {
                         energyDrinkItem.EnergyDrinking();
@@ -121,16 +123,9 @@ public class Item_UI : MonoBehaviour
                     }
                     Debug.Log("Energy Drink Item spawned.");
                     break;
-                case 3: // Item_Shield
-                    /*                    Item_Shield shieldItem = new Item_Shield();
-                                        if (shieldItem != null)
-                                        {
-                                            Collider2D collisionCollider = GetCollisionCollider();
-                                            shieldItem.HandleEnemyCollision(collisionCollider);
-                                            shieldItem.SetShieldRadius(2.5f);
-                                            Debug.Log("방어력 생성");
-                                        }*/
-                    gameObject.SetActive(true);
+                case 3:
+                    Item_Shield shieldItem = newItem.GetComponent<Item_Shield>(); // 수정
+                    newItem.SetActive(true); // 수정
                     Debug.Log("Shield Item spawned.");
                     break;
                 default:

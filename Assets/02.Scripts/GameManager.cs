@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class GameManager : MonoBehaviour
@@ -12,6 +13,7 @@ public class GameManager : MonoBehaviour
 
     public Item_UI itemUi;
     public bool isLive;
+    public Text GameOverUI;
 
     private void Awake()
     {
@@ -54,13 +56,13 @@ public class GameManager : MonoBehaviour
             /*            itemUi.Show();
                         itemUi.Select(3);*/
 
-<<<<<<< HEAD
+
              itemUi.Show();
             itemUi.Select(Random.Range(0, itemUi.itemPrefabs.Length));
-=======
+
             itemUi.Show();
             itemUi.Select(0);
->>>>>>> a8b93d54a3b4f5285e8d790677e0cb6634278704
+
 
 
             // 레벨 올리기
@@ -70,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Stop();
+        GameOverUI.text = $"Game Over";
 
     }
 
