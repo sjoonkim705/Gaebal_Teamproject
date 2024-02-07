@@ -17,7 +17,7 @@ public class EnemySpawner : MonoBehaviour
     // 현재 에너미 리스폰 간격
     float currentSpawnInterval;
     // 증가시킬 에너미 리스폰 간격
-    float doubleSpawnInterval = 0.2f;
+    float doubleSpawnInterval = 0.1f;
     // 증가시킨 에너미 리스포 기간
     float doublingDuration = 10f;
 
