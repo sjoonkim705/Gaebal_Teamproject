@@ -93,6 +93,7 @@ public class Item_BioFuel : MonoBehaviour
     }
         public void CollectBioFuel(Player player)
     {
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.ExpItem);
         if (bioType == BioType.BioFuel_blue)
         {
             player.LevelCount += 1;

@@ -25,8 +25,8 @@ public class PlayerHealthBar : MonoBehaviour
         _MaxHealth = GameManager.Instance.player.PlayerMaxHealth;
         _playerHealth = GameManager.Instance.player.PlayerHealth;
         _mySlider.value = _playerHealth / _MaxHealth;
-        Debug.Log(_MaxHealth);
-        Debug.Log(_playerHealth);
+       // Debug.Log(_MaxHealth);
+       // Debug.Log(_playerHealth);
     }
 
     void LateUpdate()
