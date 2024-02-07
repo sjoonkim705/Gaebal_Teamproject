@@ -73,6 +73,7 @@ public class Enemy : MonoBehaviour
             GameObject vfx = Instantiate(EnemyVFX_BOOMPrefab);
             vfx.transform.position = this.transform.position;
 
+            
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
             // Debug.Log("qwe");
 
@@ -94,6 +95,7 @@ public class Enemy : MonoBehaviour
 
             }
             Collider.gameObject.SetActive(false);
+            
         }
        
     }

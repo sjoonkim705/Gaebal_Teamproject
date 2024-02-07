@@ -10,16 +10,18 @@ public class GameStart : MonoBehaviour
     public Sprite sprite1;
     public Sprite sprite2;
     public float interval = 0.2f;
-    private SpriteRenderer spriteRenderer;
-
+    //private SpriteRenderer spriteRenderer;
+    public Image StartImage;
 
 
     void Start()
     {
         GameManager.Instance.Stop();
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        StartImage = GetComponent<Image>();
+        //spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(SwitchSprites());
 
+       
     }
 
 
@@ -28,11 +30,11 @@ public class GameStart : MonoBehaviour
         while (true)
         {
             // sprite1을 보여주고 기다리기
-            spriteRenderer.sprite = sprite1;
+            StartImage.sprite = sprite1;
             yield return new WaitForSecondsRealtime(interval);
 
             // sprite2를 보여주고 기다리기
-            spriteRenderer.sprite = sprite2;
+            StartImage.sprite = sprite2;
             yield return new WaitForSecondsRealtime(interval);
         }
     }
