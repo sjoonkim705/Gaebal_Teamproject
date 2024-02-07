@@ -34,6 +34,7 @@ public class Weapon : MonoBehaviour
     private int fireCount;
 
 
+
     private void Awake()
     {
         WeaponLevel = 1;
@@ -60,7 +61,7 @@ public class Weapon : MonoBehaviour
         _timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (WeaponLevel < MAX_WEAPON_LEVEL)
+            if (WeaponLevel <= MAX_WEAPON_LEVEL)
             {
                 WeaponLevel++;
                 Debug.Log($"WLevel= {WeaponLevel}");
@@ -69,6 +70,11 @@ public class Weapon : MonoBehaviour
         if (WeaponLevel <= MAX_WEAPON_LEVEL)
         {
             RepeatFire(WeaponLevel);
+        }
+        else if (WeaponLevel == 6)
+        {
+            RepeatFire(1);
+            CoolTime = 0.2f;
         }
     }
 
@@ -131,7 +137,14 @@ public class Weapon : MonoBehaviour
             }
         }
         AudioManager.instance.PlaySfx(AudioManager.Sfx.Fire);
-        bullet.GetComponent<Kunai_bullet>().SetTarget(_player.scanner.nearestTarget);
+        //bullet.GetComponent<Kunai_bullet>().
+        Kunai_bullet bulletinfo = bullet.GetComponent<Kunai_bullet>();
+        bulletinfo.SetTarget(_player.scanner.nearestTarget);
+        bulletinfo.Level = WeaponLevel;
+        if (bulletinfo.Level == 6)
+        {
+            bulletinfo.WType = WeaponType.Kunai_Upgrade;
+        }
         bullet.transform.position = this.transform.position;
         bullet.SetActive(true);
     }
