@@ -11,6 +11,7 @@ TagManager:
   - Enemy
   - Item_Magnet
   - FxTemporaire
+  - Item_shield
   layers:
   - Default
   - TransparentFX

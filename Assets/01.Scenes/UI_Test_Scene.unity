@@ -1890,7 +1890,7 @@ MonoBehaviour:
   itemPrefabs:
   - {fileID: 2469077563588958392, guid: 4c501d9e1307c0047b779ba1f5574568, type: 3}
   - {fileID: 8940847515808286724, guid: 0b18f96ef5379044580ae4840f4db96c, type: 3}
-  - {fileID: 9032126604142647237, guid: 06733f5aa8cb84b40a8d10e7cd7a4952, type: 3}
+  - {fileID: 8427427867488131534, guid: 06733f5aa8cb84b40a8d10e7cd7a4952, type: 3}
   - {fileID: 6404084101914073083, guid: e7379860e0464d448bd792245008e683, type: 3}
 --- !u!114 &913049345
 MonoBehaviour:
@@ -2791,7 +2791,9 @@ GameObject:
   - component: {fileID: 1790527198}
   - component: {fileID: 1790527197}
   - component: {fileID: 1790527196}
+  - component: {fileID: 1790527200}
   - component: {fileID: 1790527199}
+  - component: {fileID: 1790527201}
   m_Layer: 5
   m_Name: Shleid
   m_TagString: Untagged
@@ -2886,6 +2888,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1790527200}
+        m_TargetAssemblyTypeName: ShleidController, Assembly-CSharp
+        m_MethodName: ActivateShleid
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1790527197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2936,10 +2950,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c290c49be9e4a74b824acf34c2614e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ShieldAnimator: {fileID: 0}
+  ShieldAnimator: {fileID: 1790527201}
   shieldRadius_lv1: 1.5
   shieldRadius_lv2: 2
   shieldRadius_lv3: 3
+  DieE: {fileID: 0}
+--- !u!114 &1790527200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790527194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead14dbe831d64d4a8663776b82d76cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShleidPrefab: {fileID: 8427427867488131534, guid: 06733f5aa8cb84b40a8d10e7cd7a4952, type: 3}
+--- !u!95 &1790527201
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1790527194}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5f675b76def5d564c83547b756dbe78b, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1901241366
 GameObject:
   m_ObjectHideFlags: 0
