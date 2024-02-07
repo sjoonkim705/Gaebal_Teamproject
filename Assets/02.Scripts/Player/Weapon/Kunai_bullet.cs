@@ -21,7 +21,6 @@ public class Kunai_bullet : MonoBehaviour
 
     private void Awake()
     { 
-        WType = WeaponType.Kunai;
     }
 
     void OnEnable()

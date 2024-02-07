@@ -94,7 +94,7 @@ public class Item_UI : MonoBehaviour, IPointerClickHandler
             case 0:
                 Item_health healthItem = GetComponent<Item_health>();
                 Collider2D collider2D = GetCollisionCollider();
-                gameObject.SetActive(true);
+                // gameObject.SetActive(true);
                 if (healthItem != null)
                 {
                     healthItem.HealthFull(collider2D);
@@ -104,7 +104,7 @@ public class Item_UI : MonoBehaviour, IPointerClickHandler
                 break;
             case 1:
                 Item_Shield shieldItem = GetComponent<Item_Shield>();
-                gameObject.SetActive(true);
+                // gameObject.SetActive(true);
                 if (shieldItem != null)
                 {
                     Collider2D collisionCollider = GetCollisionCollider();
@@ -115,7 +115,7 @@ public class Item_UI : MonoBehaviour, IPointerClickHandler
                 break;
             case 2:
                 Item_energydrink energyDrinkItem = GetComponent<Item_energydrink>();
-                gameObject.SetActive(true);
+                // gameObject.SetActive(true);
                 if (energyDrinkItem != null)
                 {
                     energyDrinkItem.EnergyDrinking();
@@ -123,8 +123,9 @@ public class Item_UI : MonoBehaviour, IPointerClickHandler
                 }
                 break; 
             case 3:
-                Item_shoes shoesItem = GetComponent<Item_shoes>();
-                gameObject.SetActive(true);
+                Item_shoes shoesItem = new Item_shoes();
+               
+                // gameObject.SetActive(true);
                 if (shoesItem != null)
                 {
                     shoesItem.ShoesSpeed();

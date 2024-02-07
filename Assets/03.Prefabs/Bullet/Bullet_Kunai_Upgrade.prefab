@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6853215174970692185}
   - component: {fileID: 4844509982925555386}
   - component: {fileID: 4673172823133196884}
-  - component: {fileID: 4664711759221811795}
+  - component: {fileID: -2722772953653787198}
   m_Layer: 6
   m_Name: Bullet_Kunai_Upgrade
   m_TagString: Bullet
@@ -131,7 +131,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.6063039, y: 0.17033182}
   m_EdgeRadius: 0
---- !u!114 &4664711759221811795
+--- !u!114 &-2722772953653787198
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,9 +140,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 8403677243194927541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95532769a1e894e448ad6f532277e173, type: 3}
+  m_Script: {fileID: 11500000, guid: 02620e3685adf0b4fb05710964954759, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   dir: {x: 0, y: 0}
   Target: {fileID: 0}
-  WType: 1
+  WType: 0

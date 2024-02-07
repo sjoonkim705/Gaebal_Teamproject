@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     public Animator PlayerAnimator;
 
+
     public void DecreasePlayerHealth(int amount)
     {
         if (amount <=0 || PlayerHealth <=0)
@@ -85,6 +86,7 @@ public class Player : MonoBehaviour
         bool isMoving = playerRigid.velocity.magnitude > 0.1f;
         PlayerAnimator.SetBool("IsMoving", isMoving);
         //PlayerAnimator.SetFloat("MoveY", InputVec.y);
+
         
     }
     private void FixedUpdate()
@@ -103,9 +105,12 @@ public class Player : MonoBehaviour
             float power = 500f;
             other.collider.GetComponent<Rigidbody2D>().AddForce(dir.normalized * power); //적 밀어냄
             PlayerHealth -= 1;
+            PlayerAnimator.Play("PlayerHit");
+
             Debug.Log($"PlayerHP {PlayerHealth}");
         }
     }
+
 
     private void DiePlayer()
     {
