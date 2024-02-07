@@ -8,6 +8,9 @@ public class Kunai_bullet : MonoBehaviour
     private float _bulletSpeed = 13f;
     public Transform Target;
     public WeaponType WType;
+    public SpriteRenderer mySpriteRender;
+    public int Level;
+
     public void SetBulletSpeed(float speed)
     {
         _bulletSpeed = speed;
