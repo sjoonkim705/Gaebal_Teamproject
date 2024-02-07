@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Item_bomb : MonoBehaviour
 {
+    private FlashEffect _flashEffect;
 
-    
+    private void Start()
+    {
+        _flashEffect = FindObjectOfType<FlashEffect>();
+    }
+
     void Update()
     {
   
@@ -27,6 +32,8 @@ public class Item_bomb : MonoBehaviour
                 enemy.gameObject.SetActive(false);
                 enemy.MakeBioFuel();
             }
+
+            _flashEffect.Flash();
             this.gameObject.SetActive(false);
         }
 

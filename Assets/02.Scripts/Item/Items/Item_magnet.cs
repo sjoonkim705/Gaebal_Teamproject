@@ -20,6 +20,10 @@ public class Item_magnet : MonoBehaviour
     private void Update()
     {
 
+<<<<<<< HEAD
+=======
+        
+>>>>>>> 116e023ae2ef468155a4410348d4c0fa93964812
         /**
         // 1. 플레이어를 찾고
         GameObject _target = GameObject.Find("BioFuel");

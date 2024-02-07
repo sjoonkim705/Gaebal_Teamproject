@@ -10,9 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7194015805491077701}
   - component: {fileID: 5461900473168780809}
+<<<<<<< HEAD
   - component: {fileID: 2882125299711921337}
   - component: {fileID: 7995126991782548430}
   - component: {fileID: -2730899264062433251}
+=======
+>>>>>>> 116e023ae2ef468155a4410348d4c0fa93964812
   m_Layer: 0
   m_Name: item_shield
   m_TagString: Item_shield
@@ -87,6 +90,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 --- !u!114 &2882125299711921337
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,3 +163,5 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.49999997
+=======
+>>>>>>> 116e023ae2ef468155a4410348d4c0fa93964812
