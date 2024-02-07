@@ -9,7 +9,8 @@ public class GameStart : MonoBehaviour
 {
     public Sprite sprite1;
     public Sprite sprite2;
-    public float interval = 0.2f;
+    public float switchInterval = 0.3f;
+    private float _timer;
     private SpriteRenderer spriteRenderer;
 
 
@@ -18,23 +19,9 @@ public class GameStart : MonoBehaviour
     {
         GameManager.Instance.Stop();
         spriteRenderer = GetComponent<SpriteRenderer>();
-        StartCoroutine(SwitchSprites());
 
     }
 
-    IEnumerator SwitchSprites()
-    {
-        while (true)
-        {
-            // sprite1을 보여주고 기다리기
-            spriteRenderer.sprite = sprite1;
-            yield return new WaitForSecondsRealtime(interval);
-
-            // sprite2를 보여주고 기다리기
-            spriteRenderer.sprite = sprite2;
-            yield return new WaitForSecondsRealtime(interval);
-        }
-    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
