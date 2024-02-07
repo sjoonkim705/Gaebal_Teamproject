@@ -77,6 +77,9 @@ public class Player : MonoBehaviour
             LevelCount = 0;
             Debug.Log($"LevelUp : Level = {PlayerLevel}");
             itemUI.OnClickDRINK();
+/*            RandomItemSpawner randomItemSpawner = gameObject.AddComponent<RandomItemSpawner>(); 
+            randomItemSpawner.SpawnRandomItems();
+            Debug.Log("random");*/
             // itemUI.Hide();
         }
         if (PlayerHealth <= 0)
