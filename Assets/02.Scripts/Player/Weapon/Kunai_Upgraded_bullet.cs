@@ -22,7 +22,7 @@ public class Kunai_Upgraded_bullet : MonoBehaviour
 
     void Start()
     {
-        WType = WeaponType.Kunai_Upgrade;
+
     }
     void OnEnable()
     {

@@ -60,7 +60,7 @@ public class Weapon : MonoBehaviour
         _timer += Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (WeaponLevel < MAX_WEAPON_LEVEL)
+            if (WeaponLevel <= MAX_WEAPON_LEVEL)
             {
                 WeaponLevel++;
                 Debug.Log($"WLevel= {WeaponLevel}");
@@ -69,6 +69,11 @@ public class Weapon : MonoBehaviour
         if (WeaponLevel <= MAX_WEAPON_LEVEL)
         {
             RepeatFire(WeaponLevel);
+        }
+        else if (WeaponLevel == 6)
+        {
+            RepeatFire(1);
+            CoolTime = 0.2f;
         }
     }
 

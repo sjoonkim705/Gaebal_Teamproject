@@ -21,6 +21,7 @@ public class Weapon_Upgraded : MonoBehaviour
 
     private void Awake()
     {
+        WeaponType Wtype = WeaponType.Kunai_Upgrade;
         _player = GetComponentInParent<Player>();
         _poolSize = 20;
         _bulletPool = new List<GameObject>();
