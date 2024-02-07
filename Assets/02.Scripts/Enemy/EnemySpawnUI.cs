@@ -18,25 +18,36 @@ public class EnemySpawnUI : MonoBehaviour
         uianimator = GetComponent<Animator>();
         uiImage = GetComponent<Image>();
 
-        uianimator2 = GameObject.Find("Image2").GetComponent<Animator>();
-        uiImage2 = GameObject.Find("Image2").GetComponent<Image>();
+        GameObject secondUIObject = GameObject.Find("Image2");
+        if (secondUIObject != null) 
+        {
+            uianimator2 = GameObject.Find("Image2").GetComponent<Animator>();
+            uiImage2 = GameObject.Find("Image2").GetComponent<Image>();
+
+            SpriteOFF();
+            HideUI();
+        }
         
-        SpriteOFF();
-        HideUI();
+        
+        
     }
     private void Update()
     {
-        /**timeElapsed += Time.deltaTime;
-        if (timeElapsed >= 3f) 
+        timeElapsed += Time.deltaTime;
+        if (timeElapsed >= 37f) 
         {
             SpriteON();
             ShowUI();
         }
-        if (timeElapsed >= 5f) 
+        if (timeElapsed >= 40f) 
         {
             SpriteOFF();
             HideUI();
-        }**/
+        }
+        if (timeElapsed >= 60f) 
+        {
+            timeElapsed = 0f;
+        }
     }
     public void ShowUI() 
     {

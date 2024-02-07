@@ -21,7 +21,7 @@ public class EnemySpawner : MonoBehaviour
     // 증가시킨 에너미 리스포 기간
     float doublingDuration = 10f;
 
-    EnemySpawnUI uiani;
+    //EnemySpawnUI uiani;
     
 
     private void Awake()
@@ -32,7 +32,7 @@ public class EnemySpawner : MonoBehaviour
         // 초기 에너미 리스폰 간격 설정
         currentSpawnInterval = initalSpawnInterval;
 
-        uiani = FindObjectOfType<EnemySpawnUI>();
+        //uiani = FindObjectOfType<EnemySpawnUI>();
        
         
         
@@ -53,22 +53,22 @@ public class EnemySpawner : MonoBehaviour
             _timer = 0;
         }
 
-        if (timeElapsed >= 3f) 
+        /*if (timeElapsed >= 47f)
         {
-            uiani.SpriteON();
-            uiani.ShowUI();
-        }
+            //uiani.SpriteON();
+            //uiani.ShowUI();
+        }*/
         // 60초가 지나면
-        if (timeElapsed >= 6f)
+        if (timeElapsed >= 40f)
         {
-            uiani.SpriteOFF();
-            uiani.HideUI();
+            //uiani.SpriteOFF();
+            //uiani.HideUI();
             // 에너미 리스폰 간격 2배
             currentSpawnInterval = doubleSpawnInterval;
         }
         
         // 30초 이후에는
-        if (timeElapsed >= 90f) 
+        if (timeElapsed >= 60f) 
         {
             // 다시 초기 간격으로 변경
             currentSpawnInterval = initalSpawnInterval;
