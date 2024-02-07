@@ -24,10 +24,9 @@ public class Item_health : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            Player player = collision.gameObject.GetComponent<Player>();
 
-            //Player player = collision.gameObject.GetComponent<Player>();
-
-            Player player = collision.GetComponent<Player>();
+           player = collision.GetComponent<Player>();
 
             player.PlayerHealth = player.PlayerMaxHealth;
             Debug.Log(player.PlayerHealth);

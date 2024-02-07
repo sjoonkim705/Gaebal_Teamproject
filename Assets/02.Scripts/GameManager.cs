@@ -53,8 +53,8 @@ public class GameManager : MonoBehaviour
 /*            itemUi.Show();
             itemUi.Select(3);*/
 
-            itemUi.Show();
-            itemUi.Select(0);
+             itemUi.Show();
+             itemUi.Select(0);
 
 
             // 레벨 올리기
