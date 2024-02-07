@@ -10,6 +10,7 @@ TagManager:
   - Bullet
   - Enemy
   - Item_Magnet
+  - FxTemporaire
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - Bullet
   - Enemy
   - Player
-  - 
+  - VFX
   - 
   - 
   - 
@@ -64,4 +65,7 @@ TagManager:
     locked: 0
   - name: UI
     uniqueID: 3336455967
+    locked: 0
+  - name: VFX
+    uniqueID: 4227216527
     locked: 0

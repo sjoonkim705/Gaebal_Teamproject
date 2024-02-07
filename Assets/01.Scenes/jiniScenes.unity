@@ -2119,6 +2119,7 @@ MonoBehaviour:
   PlayerMaxHealth: 0
   EnabledWeapon: {fileID: 0}
   PlayerLevel: 0
+  itemUI: {fileID: 0}
   PlayerAnimator: {fileID: 0}
 --- !u!70 &2092447384
 CapsuleCollider2D:

@@ -33,7 +33,7 @@ public class Enemy : MonoBehaviour
     public Animator DieE;
     public bool IsDie = false;
 
-
+    public GameObject EnemyVFX_BOOMPrefab;
    
     private void OnEnable()
     {
@@ -70,7 +70,9 @@ public class Enemy : MonoBehaviour
     {
         if (Collider.tag == "Bullet") // 태그 확인
         {
-            
+            GameObject vfx = Instantiate(EnemyVFX_BOOMPrefab);
+            vfx.transform.position = this.transform.position;
+
             Kunai_bullet bellet = Collider.GetComponent<Kunai_bullet>();
             // Debug.Log("qwe");
 
