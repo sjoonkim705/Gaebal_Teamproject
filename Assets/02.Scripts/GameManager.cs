@@ -54,13 +54,14 @@ public class GameManager : MonoBehaviour
             /*            itemUi.Show();
                         itemUi.Select(3);*/
 
-<<<<<<< HEAD
+
              itemUi.Show();
-            itemUi.Select(Random.Range(0, itemUi.itemPrefabs.Length));
-=======
-            itemUi.Show();
-            itemUi.Select(0);
->>>>>>> a8b93d54a3b4f5285e8d790677e0cb6634278704
+            itemUi.Select(1);
+            itemUi.Select(3);
+
+            /*            itemUi.Show();
+                        itemUi.Select(0);*/
+
 
 
             // 레벨 올리기

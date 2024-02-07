@@ -105,7 +105,7 @@ public class Item_UI : MonoBehaviour
                     if (item_Shoes != null)
                     {
                         item_Shoes.GetComponent<Item_shoes>().ShoesSpeed();
-                        gameObject.SetActive(true);
+                        gameObject.SetActive(false);
                         Debug.Log("스피드 증가");
 
                    }
@@ -130,7 +130,7 @@ public class Item_UI : MonoBehaviour
                                             shieldItem.SetShieldRadius(2.5f);
                                             Debug.Log("방어력 생성");
                                         }*/
-                    gameObject.SetActive(true);
+                    gameObject.SetActive(false);
                     Debug.Log("Shield Item spawned.");
                     break;
                 default:
