@@ -20,6 +20,7 @@ public class Item_Shield : MonoBehaviour
 
     private void Start()
     {
+
         SetShieldRadius(shieldRadius_lv1);
     }
 

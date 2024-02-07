@@ -11,6 +11,7 @@ public class Item_energydrink : MonoBehaviour
     void Start()
     {
         _time = 0;
+        this.gameObject.SetActive(false);
     }
 
     // Update is called once per frame

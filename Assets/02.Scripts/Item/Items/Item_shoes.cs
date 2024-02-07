@@ -6,7 +6,10 @@ using UnityEngine;
 public class Item_shoes : MonoBehaviour
 {
 
+    private void Start()
+    {
 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -15,9 +18,12 @@ public class Item_shoes : MonoBehaviour
 
     public void ShoesSpeed()
     {
-        Player player = GetComponent<Player>();
-        player.Speed *= 1.1f;
-        float maxSpeed = 10.0f; // 최대 이동 속도 설정
-        player.Speed = Mathf.Min(player.Speed, maxSpeed);
+        if (this.gameObject.activeSelf) {
+            Player player = GetComponent<Player>();
+            player.Speed *= 1.1f;
+            float maxSpeed = 10.0f; // 최대 이동 속도 설정
+            player.Speed = Mathf.Min(player.Speed, maxSpeed);
+        }
+
     }
 }
