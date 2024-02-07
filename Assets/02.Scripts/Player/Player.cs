@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
 
     public Animator PlayerAnimator;
 
+    Vector2 _dir;
 
     public void DecreasePlayerHealth(int amount)
     {
@@ -87,7 +88,8 @@ public class Player : MonoBehaviour
         PlayerAnimator.SetBool("IsMoving", isMoving);
         //PlayerAnimator.SetFloat("MoveY", InputVec.y);
 
-        
+
+
     }
     private void FixedUpdate()
     {
@@ -105,12 +107,9 @@ public class Player : MonoBehaviour
             float power = 500f;
             other.collider.GetComponent<Rigidbody2D>().AddForce(dir.normalized * power); //적 밀어냄
             PlayerHealth -= 1;
-            PlayerAnimator.Play("PlayerHit");
-
             Debug.Log($"PlayerHP {PlayerHealth}");
         }
     }
-
 
     private void DiePlayer()
     {

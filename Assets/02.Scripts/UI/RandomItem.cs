@@ -8,13 +8,14 @@ public class RandomItemSpawner : MonoBehaviour
     public int numberOfItems = 4; // 생성할 아이템의 개수
 
     // 랜덤 아이템 생성 메서드
-    public void SpawnRandomItems(int numberOfItems)
+    public void SpawnRandomItems()
     {
-        // 랜덤으로 2개의 아이템 생성
+        numberOfItems = itemUI.itemPrefabs.Length; // Item_UI 스크립트에서 프리팹 배열의 크기를 가져옵니다.
         for (int i = 0; i < 2; i++)
         {
-            int randomIndex = Random.Range(0, numberOfItems); // 0부터 numberOfItems - 1 사이의 랜덤한 index 생성
-            itemUI.Select(randomIndex); // 생성된 랜덤한 index를 사용하여 아이템 선택
+            int randomIndex = Random.Range(0, numberOfItems);
+            itemUI.Select(randomIndex);
         }
     }
+
 }

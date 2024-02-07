@@ -1,6 +1,8 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
+using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class Item_Shield : MonoBehaviour
@@ -9,6 +11,8 @@ public class Item_Shield : MonoBehaviour
     public float shieldRadius_lv1 = 1.5f;
     public float shieldRadius_lv2 = 2f;
     public float shieldRadius_lv3 = 3f;
+    public Animator DieE;
+    Vector2 _dir;
 
     private CircleCollider2D circleCollider;
 
@@ -20,8 +24,24 @@ public class Item_Shield : MonoBehaviour
 
     private void Start()
     {
+        this.gameObject.SetActive(true);
+        Player ply = FindObjectOfType<Player>();
+        this.transform.position = ply.transform.position;
+        _dir.Normalize();
 
+        float speed = 5f;
+        transform.position += (Vector3)_dir * speed * Time.deltaTime;
         SetShieldRadius(shieldRadius_lv1);
+    }
+
+    private void Update()
+    {
+        Player ply = FindObjectOfType<Player>();
+        this.transform.position = ply.transform.position;
+        _dir.Normalize();
+
+        float speed = 5f;
+        transform.position += (Vector3)_dir * speed * Time.deltaTime;
     }
 
     private void LateUpdate()
@@ -57,6 +77,7 @@ public class Item_Shield : MonoBehaviour
         if (enemy.Health <= 0)
         {
             enemy.gameObject.SetActive(false);
+
         }
     }
 
