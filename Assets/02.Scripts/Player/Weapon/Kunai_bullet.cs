@@ -11,6 +11,10 @@ public class Kunai_bullet : MonoBehaviour
     public SpriteRenderer mySpriteRender;
     public Sprite KunaiUpgradeSprite;
     public int Level;
+    //private GameObject _vfx;
+
+
+    public GameObject BulletVFXPrefab;
 
     public void SetBulletSpeed(float speed)
     {
@@ -37,6 +41,8 @@ public class Kunai_bullet : MonoBehaviour
                 mySpriteRender = GetComponent<SpriteRenderer>();
                 mySpriteRender.sprite = KunaiUpgradeSprite;
                 SetBulletSpeed(15f);
+              //  _vfx = GameObject.Instantiate(BulletVFXPrefab);
+              //  _vfx.transform.parent = this.transform;
             }
             dir = Target.transform.position - GameManager.Instance.player.transform.position;
             dir = dir.normalized;
@@ -46,6 +52,10 @@ public class Kunai_bullet : MonoBehaviour
             transform.rotation = UnityEngine.Quaternion.Euler(new Vector3(0, 0, degreeTarget));
         }
 
+    }
+    void OnDisable()
+    {
+      //  Destroy(_vfx);
     }
 
     void FixedUpdate()
