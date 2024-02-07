@@ -22,6 +22,8 @@ public class Player : MonoBehaviour
     public int PlayerLevel;
     private float _enemyCollisionTimer;
 
+    public Item_UI itemUI;
+
 
     private SpriteRenderer _playerSr = null;
     WeaponType WType;
@@ -67,6 +69,8 @@ public class Player : MonoBehaviour
             PlayerLevel++;
             LevelCount = 0;
             Debug.Log($"LevelUp : Level = {PlayerLevel}");
+            itemUI.OnClickDRINK();
+            // itemUI.Hide();
         }
         if (PlayerHealth <= 0)
         {
