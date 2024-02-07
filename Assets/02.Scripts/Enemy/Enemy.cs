@@ -44,13 +44,10 @@ public class Enemy : MonoBehaviour
     {
         IsDie = false;
         EnemySpriter = GetComponent<SpriteRenderer>(); // 2번
-
     }
     void FixedUpdate()
     {
-
         EnemyMove();
-        
 
 
         EnemySpriter.flipX = target.transform.position.x < this.transform.position.x; // 2번
@@ -100,8 +97,6 @@ public class Enemy : MonoBehaviour
     public void DieEnemy() 
     {
         deathPosition = transform.position;
-   
-
 
         // Destroy(gameObject);
         gameObject.SetActive(false);
