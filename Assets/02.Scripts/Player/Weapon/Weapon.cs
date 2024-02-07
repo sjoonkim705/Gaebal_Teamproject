@@ -130,6 +130,7 @@ public class Weapon : MonoBehaviour
                 break;
             }
         }
+        AudioManager.instance.PlaySfx(AudioManager.Sfx.Fire);
         bullet.GetComponent<Kunai_bullet>().SetTarget(_player.scanner.nearestTarget);
         bullet.transform.position = this.transform.position;
         bullet.SetActive(true);

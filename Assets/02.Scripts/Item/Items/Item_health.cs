@@ -17,12 +17,12 @@ public class Item_health : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        HealthFull();
+        HealthFull(collision);
     }
 
-    public void HealthFull()
+    public void HealthFull(Collider2D collision)
     {
-        if (CompareTag("Player"))
+        if (collision.CompareTag("Player"))
         {
             Player player = gameObject.GetComponent<Player>();
             player.PlayerHealth = player.PlayerMaxHealth;
