@@ -10,7 +10,7 @@ public class Item_magnet : MonoBehaviour
     public GameObject bioFuel;
     Vector2 _dir;
     private GameObject _target;
-
+    public float magnetRange = 5f; // 마그넷의 범위
 
     private void Start()
     {
@@ -19,7 +19,7 @@ public class Item_magnet : MonoBehaviour
 
     private void Update()
     {
-        
+
         /**
         // 1. 플레이어를 찾고
         GameObject _target = GameObject.Find("BioFuel");
@@ -38,6 +38,24 @@ public class Item_magnet : MonoBehaviour
         Debug.Log("마그넷으로 이동");
         **/
 
+            GameObject[] magnets = GameObject.FindGameObjectsWithTag("Item_Magnet");
+
+            foreach (GameObject magnet in magnets)
+            {
+                float distanceToMagnet = Vector2.Distance(transform.position, magnet.transform.position);
+                if (distanceToMagnet <= magnet.GetComponent<Item_magnet>().magnetRange)
+                {
+                    // 마그넷으로 끌려가는 로직
+                    Vector2 directionToMagnet = (magnet.transform.position - transform.position).normalized;
+                    transform.position += (Vector3)(directionToMagnet * Speed) * Time.deltaTime;
+                    break; // 하나의 마그넷에만 반응하도록 합니다.
+                }
+            }
+
+/*        GameObject _target = GameObject.FindGameObjectWithTag("Player");
+        _target.transform.position -= transform.position;*/
+        
+        
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {

@@ -31,6 +31,8 @@ public class Player : MonoBehaviour
 
     public Animator PlayerAnimator;
 
+    Vector2 _dir;
+
     public void DecreasePlayerHealth(int amount)
     {
         if (amount <=0 || PlayerHealth <=0)
@@ -85,7 +87,9 @@ public class Player : MonoBehaviour
         bool isMoving = playerRigid.velocity.magnitude > 0.1f;
         PlayerAnimator.SetBool("IsMoving", isMoving);
         //PlayerAnimator.SetFloat("MoveY", InputVec.y);
-        
+
+
+
     }
     private void FixedUpdate()
     {

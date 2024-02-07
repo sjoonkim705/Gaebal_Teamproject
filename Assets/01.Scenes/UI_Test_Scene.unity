@@ -123,6 +123,59 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &359331223
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 359331225}
+  - component: {fileID: 359331224}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &359331224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359331223}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb043c4437f3ef7438e5ab6e7980bade, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgmClip: {fileID: 0}
+  bgmVolume: 0
+  sfxClips:
+  - {fileID: 8300000, guid: 4f322cd12bbc39b40a49ecb53d2da3d7, type: 3}
+  - {fileID: 8300000, guid: dff5f1594cc6ebd4ca97cc3bb1d37a77, type: 3}
+  - {fileID: 8300000, guid: 2c5ca2886097a01408d70c13e595dfd7, type: 3}
+  - {fileID: 8300000, guid: 7d6a01ba38dd2744598bb36ca2486465, type: 3}
+  sfxVolume: 0.5
+  channels: 16
+--- !u!4 &359331225
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 359331223}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &395390072
 GameObject:
   m_ObjectHideFlags: 0
@@ -1834,10 +1887,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a868416281a1239498fd6080c8d9eb87, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Energydrink: {fileID: -6323940263354678074, guid: 4c501d9e1307c0047b779ba1f5574568, type: 3}
-  shoes: {fileID: 8812793729122348549, guid: e7379860e0464d448bd792245008e683, type: 3}
-  shieldItem: {fileID: 0}
-  Magnet: {fileID: 2700058979432539506, guid: 0b18f96ef5379044580ae4840f4db96c, type: 3}
+  itemPrefabs:
+  - {fileID: 2469077563588958392, guid: 4c501d9e1307c0047b779ba1f5574568, type: 3}
+  - {fileID: 8940847515808286724, guid: 0b18f96ef5379044580ae4840f4db96c, type: 3}
+  - {fileID: 9032126604142647237, guid: 06733f5aa8cb84b40a8d10e7cd7a4952, type: 3}
+  - {fileID: 6404084101914073083, guid: e7379860e0464d448bd792245008e683, type: 3}
 --- !u!114 &913049345
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3217,6 +3271,7 @@ GameObject:
   - component: {fileID: 2037167179}
   - component: {fileID: 2037167178}
   - component: {fileID: 2037167177}
+  - component: {fileID: 2037167181}
   - component: {fileID: 2037167180}
   m_Layer: 5
   m_Name: Magnet
@@ -3288,6 +3343,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 913049341}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: 
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
       - m_Target: {fileID: 913049344}
         m_TargetAssemblyTypeName: Item_UI, Assembly-CSharp
         m_MethodName: Hide
@@ -3300,29 +3367,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 8940847515808286724, guid: 0b18f96ef5379044580ae4840f4db96c, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
+      - m_Target: {fileID: 2037167181}
+        m_TargetAssemblyTypeName: MagnetController, Assembly-CSharp
+        m_MethodName: ActivateMagnet
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
-      - m_Target: {fileID: 7655265004665779348, guid: 212570211c8baca4d8bb2e5bc9e18a7b, type: 3}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
+          m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &2037167178
 MonoBehaviour:
@@ -3376,6 +3431,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 20
   bioFuel: {fileID: 7655265004665779348, guid: 212570211c8baca4d8bb2e5bc9e18a7b, type: 3}
+  magnetRange: 5
+--- !u!114 &2037167181
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2037167175}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d3ccff7e1bf55641828571284e4c8d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  magnetEffectPrefab: {fileID: 8940847515808286724, guid: 0b18f96ef5379044580ae4840f4db96c, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3394,3 +3463,4 @@ SceneRoots:
   - {fileID: 811374579}
   - {fileID: 863575762}
   - {fileID: 977707878}
+  - {fileID: 359331225}
