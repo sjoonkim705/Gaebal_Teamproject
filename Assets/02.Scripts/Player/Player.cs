@@ -27,6 +27,8 @@ public class Player : MonoBehaviour
     WeaponType WType;
     private const float DEFALT_PLAYER_SPEED = 5.0f;
 
+    public Animator PlayerAnimator;
+
     public void DecreasePlayerHealth(int amount)
     {
         if (amount <=0 || PlayerHealth <=0)
@@ -54,6 +56,7 @@ public class Player : MonoBehaviour
         Speed = DEFALT_PLAYER_SPEED;
         _playerSr = GetComponent<SpriteRenderer>(); // playermove 좌우반전을 위한 spriterenderer
 
+        PlayerAnimator = GetComponent<Animator>();
     }
 
     void Update()
@@ -61,6 +64,8 @@ public class Player : MonoBehaviour
         InputVec.x = Input.GetAxis("Horizontal");
         InputVec.y = Input.GetAxis("Vertical");
         expRequired = (PlayerLevel + 1) * 10;
+
+        
 
         if (LevelCount >= expRequired)
         {
@@ -73,6 +78,10 @@ public class Player : MonoBehaviour
             DiePlayer();
         }
 
+        bool isMoving = playerRigid.velocity.magnitude > 0.1f;
+        PlayerAnimator.SetBool("IsMoving", isMoving);
+        //PlayerAnimator.SetFloat("MoveY", InputVec.y);
+        
     }
     private void FixedUpdate()
     {
