@@ -16,7 +16,8 @@ public class Item_UI : MonoBehaviour
 
     public GameObject[] itemPrefabs; // 아이템 프리팹들을 저장할 배열
 
- 
+    public List<GameObject> CardList;
+
     // Start is called before the first frame updatez 
     private void Awake()
     {
@@ -27,49 +28,55 @@ public class Item_UI : MonoBehaviour
     }
     private void Start()
     {
-/*        if (shieldItem != null)
-        {
-            // Collider2D 변수를 얻어옴 (다른 스크립트에서 어떻게 가져올지에 따라 코드가 다를 수 있음)
-            Collider2D collisionCollider = GetCollisionCollider();
+        
+        /*        if (shieldItem != null)
+                {
+                    // Collider2D 변수를 얻어옴 (다른 스크립트에서 어떻게 가져올지에 따라 코드가 다를 수 있음)
+                    Collider2D collisionCollider = GetCollisionCollider();
 
-            // SetShieldRadius 함수 호출
-            shieldItem.SetShieldRadius(2.5f);
+                    // SetShieldRadius 함수 호출
+                    shieldItem.SetShieldRadius(2.5f);
 
-            // HandleEnemyCollision 함수 호출
-            shieldItem.HandleEnemyCollision(collisionCollider);
-        }*/
+                    // HandleEnemyCollision 함수 호출
+                    shieldItem.HandleEnemyCollision(collisionCollider);
+                }*/
     }
-    public void OnClickDRINK()
-    {
-        /*        Item_energydrink energyDrinkItem = GetComponent<Item_energydrink>();
-                energyDrinkItem.EnergyDrinking();*/
-        image = GetComponentInChildren<Image>();
-        image.enabled = true;
-        rect.localScale = Vector3.one;
-        GameManager gameManager = GameManager.Instance;
-        GameManager.Instance.Stop();
-        Debug.Log("click");
-    }
+
     public void Show()
     {
         rect.localScale = Vector3.one;
         Debug.Log("UI나오나?");
-        // 이미지 컴포넌트가 null이 아닌 경우에만 활성화합니다.
-        if (image != null)
+
+
+        int randomIndex1 = -1;
+        int randomIndex2 = -1;
+
+        randomIndex1 = UnityEngine.Random.Range(0, CardList.Count);
+
+        while(true)
         {
-            image.enabled = true; // 이미지를 활성화합니다.
+            randomIndex2 = UnityEngine.Random.Range(0, CardList.Count);
+            if(randomIndex1 != randomIndex2)
+            {
+                break;
+            }
         }
-        else
+
+        foreach(GameObject card in CardList) 
         {
-            Debug.LogError("Image component is null!");
+            card.gameObject.SetActive(false);
         }
+
+        CardList[randomIndex1].gameObject.SetActive(true);
+        CardList[randomIndex2].gameObject.SetActive(true);
+
 
         GameManager.Instance.Stop();
     }
     public void Hide()
     {
-        image = GetComponentInChildren<Image>();
-        image.enabled = false;
+        //image = GetComponentInChildren<Image>();
+        //image.enabled = false;
         Debug.Log("UI사라지나?");
         rect.localScale = Vector3.zero;
 
@@ -93,7 +100,7 @@ public class Item_UI : MonoBehaviour
 
             switch (index)
             {
-                case 0:
+                case 0: // 헬스
                     Item_health healthItem = newItem.GetComponent<Item_health>(); // 수정
                     Collider2D collider2D = GetCollisionCollider();
                     newItem.SetActive(true); // 수정
@@ -103,7 +110,7 @@ public class Item_UI : MonoBehaviour
                         Debug.Log("Health Item spawned.");
                     }
                     break;
-                case 1:
+                case 1: // 스피드
                     Item_shoes item_Shoes = newItem.GetComponent<Item_shoes>(); // 수정
                     newItem.SetActive(true); // 수정
                     if (item_Shoes != null)
@@ -113,7 +120,7 @@ public class Item_UI : MonoBehaviour
                     }
                     Debug.Log("Magnet Item spawned.");
                     break;
-                case 2:
+                case 2: // 에너지
                     Item_energydrink energyDrinkItem = newItem.GetComponent<Item_energydrink>(); // 수정
                     newItem.SetActive(true); // 수정
                     if (energyDrinkItem != null)
@@ -123,15 +130,21 @@ public class Item_UI : MonoBehaviour
                     }
                     Debug.Log("Energy Drink Item spawned.");
                     break;
-                case 3:
+                case 3: // 쉴드
                     Item_Shield shieldItem = newItem.GetComponent<Item_Shield>(); // 수정
                     newItem.SetActive(true); // 수정
                     Debug.Log("Shield Item spawned.");
                     break;
+                case 4: // 쿠나이 레벨업
+                    GameManager.Instance.player.Weapons[0].WeaponLevel += 1;
+                    break;
+
                 default:
                     Debug.LogError("Invalid item index selected.");
                     break;
             }
+
+            Debug.Log($"{index}번 클릭");
         }
         else
         {

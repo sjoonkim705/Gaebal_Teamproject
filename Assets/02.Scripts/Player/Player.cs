@@ -15,6 +15,9 @@ public class Player : MonoBehaviour
     public int PlayerHealth;
     public int PlayerMaxHealth;
 
+    public List<Weapon> Weapons;
+
+
     public GameObject EnabledWeapon;
 
     private Rigidbody2D playerRigid;
@@ -24,7 +27,7 @@ public class Player : MonoBehaviour
 
     public Item_UI itemUI;
 
-
+   
     private SpriteRenderer _playerSr = null;
     WeaponType WType;
     private const float DEFALT_PLAYER_SPEED = 5.0f;
@@ -76,7 +79,9 @@ public class Player : MonoBehaviour
             PlayerLevel++;
             LevelCount = 0;
             Debug.Log($"LevelUp : Level = {PlayerLevel}");
-            itemUI.OnClickDRINK();
+
+            itemUI.Show();
+
 /*            RandomItemSpawner randomItemSpawner = gameObject.AddComponent<RandomItemSpawner>(); 
             randomItemSpawner.SpawnRandomItems();
             Debug.Log("random");*/
