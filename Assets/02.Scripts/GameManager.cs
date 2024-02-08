@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public bool isLive;
     public Text GameOverUI;
 
-    public Image GameOverImage;
+    public GameObject GameOverImage;
 
     private void Awake()
     {
@@ -24,8 +24,9 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-        GameOverImage = GetComponent<Image>();
-
+        //GameOver GameOverImage = GetComponent<GameOver>();
+        
+        
         
 
     }
@@ -76,8 +77,8 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Stop();
-        
-        GameOverUI.text = $"Game Over";
+        GameOverImage.SetActive(true);
+        //GameOverUI.text = $"Game Over";
         
     }
     
