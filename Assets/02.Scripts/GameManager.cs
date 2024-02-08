@@ -15,6 +15,8 @@ public class GameManager : MonoBehaviour
     public bool isLive;
     public Text GameOverUI;
 
+    public Image GameOverImage;
+
     private void Awake()
     {
         Instance = this;
@@ -24,7 +26,7 @@ public class GameManager : MonoBehaviour
     {
 
 
-
+        
 
     }
 
@@ -74,9 +76,11 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         Stop();
+        
         GameOverUI.text = $"Game Over";
 
     }
+    
 
     public void Stop()
     {
