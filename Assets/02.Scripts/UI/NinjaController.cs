@@ -1,16 +1,34 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NinjaController : MonoBehaviour
 {
-    public GameObject NinjaPrefab; // 마그넷 효과 프리팹
-
-    // 마그넷 기능을 활성화하는 메서드
-    public void ActivateNinja()
+    public Image MyImage;
+    public Sprite[] mySprites;
+    private void Start()
     {
-        NinjaPrefab.SetActive(true);
-        // 마그넷 효과를 생성하거나, 마그넷 관련 로직을 실행합니다.
-        Instantiate(NinjaPrefab);
-
-        Debug.Log("Ninja activated!");
+        MyImage = GetComponent<Image>();
     }
+    private void Update()
+    {
+        if (GameManager.Instance.player.SpeedUpCount == 0)
+        {
+            MyImage.sprite = mySprites[0];
+        }
+        else if (GameManager.Instance.player.SpeedUpCount == 1)
+        {
+            MyImage.sprite = mySprites[1];
+        }
+        else if (GameManager.Instance.player.SpeedUpCount == 2)
+        {
+            MyImage.sprite = mySprites[2];
+        }
+        else if (GameManager.Instance.player.SpeedUpCount == 3)
+        {
+            MyImage.sprite = mySprites[3];
+        }
+
+    }
+    // 마그넷 기능을 활성화하는 메서드
+
 }

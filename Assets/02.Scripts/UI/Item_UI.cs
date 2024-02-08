@@ -52,11 +52,26 @@ public class Item_UI : MonoBehaviour
         int randomIndex1 = -1;
         int randomIndex2 = -1;
 
-        randomIndex1 = UnityEngine.Random.Range(0, CardList.Count);
-
         while(true)
         {
-            randomIndex2 = UnityEngine.Random.Range(0, CardList.Count);
+            randomIndex1 = UnityEngine.Random.Range(0, 4);
+            randomIndex2 = UnityEngine.Random.Range(0, 4);
+            if (GameManager.Instance.player.IsShieldOn == true && (randomIndex1 == 3 || randomIndex2 == 3))
+            {
+                continue;
+            }
+            if (GameManager.Instance.player.Weapons[0].WeaponLevel == 4 && GameManager.Instance.player.SpeedUpCount != 0)
+            {
+                randomIndex1 = 4; // 유령수리검
+                randomIndex2 = 0; // 에너지회복
+                break;
+            }
+            if (GameManager.Instance.player.Weapons[0].WeaponLevel == 6)
+            {
+                randomIndex1 = 0;
+                randomIndex2 = 2;
+                break;
+            }
             if(randomIndex1 != randomIndex2)
             {
                 break;
@@ -87,71 +102,87 @@ public class Item_UI : MonoBehaviour
         }
         else
         {
-            Debug.LogError("GameManager instance is null!");
+            Debug.Log("GameManager instance is null!");
         }
     }
 
 
     public void Select(int index)
     {
-        if (index >= 0 && index < itemPrefabs.Length)
-        {
-            GameObject newItem = Instantiate(itemPrefabs[index], transform.position, Quaternion.identity);
-            Debug.Log($"Item {index} spawned.");
+        Debug.Log($"Item {index} spawned.");
 
-            switch (index)
+        switch (index)
+        {
+            case 0: // 헬스
             {
-                case 0: // 헬스
-                    Item_health healthItem = newItem.GetComponent<Item_health>(); // 수정
-                    Collider2D collider2D = GetCollisionCollider();
-                    newItem.SetActive(true); // 수정
-                    if (healthItem != null)
-                    {
-                        healthItem.HealthFull(collider2D);
-                        Debug.Log("Health Item spawned.");
-                    }
-                    break;
-                case 1: // 스피드
-                    Item_shoes item_Shoes = newItem.GetComponent<Item_shoes>(); // 수정
-                    newItem.SetActive(true); // 수정
-                    if (item_Shoes != null)
-                    {
-                        item_Shoes.ShoesSpeed();
-                        Debug.Log("스피드 증가");
-                    }
-                    Debug.Log("Magnet Item spawned.");
-                    break;
-                case 2: // 에너지
-                    Item_energydrink energyDrinkItem = newItem.GetComponent<Item_energydrink>(); // 수정
-                    newItem.SetActive(true); // 수정
-                    if (energyDrinkItem != null)
-                    {
-                        energyDrinkItem.EnergyDrinking();
-                        Debug.Log("에너지 증가");
-                    }
-                    Debug.Log("Energy Drink Item spawned.");
-                    break;
-                case 3: // 쉴드
-                    Item_Shield shieldItem = newItem.GetComponent<Item_Shield>(); // 수정
-                    newItem.SetActive(true); // 수정
-                    Debug.Log("Sheild Item spawned.");
-                    break;
-                case 4: // 쿠나이 레벨업
-                    GameManager.Instance.player.Weapons[0].GetLevelUPWeapon();
+                /*                GameObject newItem = Instantiate(itemPrefabs[index], transform.position, Quaternion.identity);
 
-                    break;
-
-                default:
-                    Debug.LogError("Invalid item index selected.");
-                    break;
+                                Item_health healthItem = newItem.GetComponent<Item_health>(); // 수정
+                                Collider2D collider2D = GetCollisionCollider();
+                                newItem.SetActive(true); // 수정*/
+                /*                if (healthItem != null)
+                                {
+                                    healthItem.HealthFull(GetComponent<Collider2D>());
+                                    Debug.Log("Health Item spawned.");
+                                }*/
+                GameManager.Instance.player.PlayerHealth = GameManager.Instance.player.PlayerMaxHealth;
+                break;
             }
+                
+            case 1: // 스피드
+            {
+                // GameObject newItem = Instantiate(itemPrefabs[index], transform.position, Quaternion.identity);
 
-            Debug.Log($"{index}번 클릭");
+                /*                Item_shoes item_Shoes = newItem.GetComponent<Item_shoes>(); // 수정
+                                newItem.SetActive(true); // 수정
+                                if (item_Shoes != null)
+                                {
+                                    item_Shoes.ShoesSpeed();
+                                    Debug.Log("스피드 증가");
+                                }*/
+                GameManager.Instance.player.IncreaseSpeed();
+                break;
+            }
+               
+            case 2: // 에너지
+            {
+                GameObject newItem = Instantiate(itemPrefabs[0], transform.position, Quaternion.identity);
+
+                Item_energydrink energyDrinkItem = newItem.GetComponent<Item_energydrink>(); // 수정
+                newItem.SetActive(true); // 수정
+                if (energyDrinkItem != null)
+                {
+                    energyDrinkItem.EnergyDrinking();
+                    Debug.Log("에너지 증가");
+                }
+                Debug.Log("Energy Drink Item spawned.");
+                break;
+            }
+                
+            case 3: // 쉴드
+            {
+                GameObject newItem = Instantiate(itemPrefabs[2], transform.position, Quaternion.identity);
+
+                Item_Shield shieldItem = newItem.GetComponent<Item_Shield>(); // 수정
+                newItem.SetActive(true); // 수정
+                GameManager.Instance.player.IsShieldOn = true;
+                Debug.Log("Sheild Item spawned.");
+                break;
+            }
+               
+            case 4: // 쿠나이 레벨업
+                GameManager.Instance.player.Weapons[0].SetLevelUPWeapon();
+                break;
+            case 5:
+                GameManager.Instance.player.Weapons[0].SetKunaiUpgrade();
+                break;
+
+            default:
+                Debug.LogError("Invalid item index selected.");
+                break;
         }
-        else
-        {
-            Debug.LogError("Index out of range.");
-        }
+
+        Debug.Log($"{index}번 클릭");
     }
 
 

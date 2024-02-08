@@ -34,12 +34,26 @@ public class Weapon : MonoBehaviour
     private int fireCount;
 
 
-    public void GetLevelUPWeapon()
+    public void SetLevelUPWeapon()
     {
-        WeaponLevel++;
+        if (WeaponLevel > 4)
+        {
+            return;
+        }
+        else if (WeaponLevel == 4)
+        {
+            SetKunaiUpgrade();
+        }
+        else
+        {
+            WeaponLevel++;
+        }
         Debug.Log($"WLevel= {WeaponLevel}");
     }
-
+    public void SetKunaiUpgrade()
+    {
+        WeaponLevel = 6;
+    }
     private void Awake()
     {
         WeaponLevel = 1;
@@ -64,13 +78,13 @@ public class Weapon : MonoBehaviour
     void Update()
     {
         _timer += Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.Space))
+/*        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (WeaponLevel <= MAX_WEAPON_LEVEL)
             {
                 GetLevelUPWeapon();
             }
-        }
+        }*/
         if (WeaponLevel <= MAX_WEAPON_LEVEL)
         {
             RepeatFire(WeaponLevel);

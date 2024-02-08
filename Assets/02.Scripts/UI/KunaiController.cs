@@ -1,17 +1,32 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class KunaiController : MonoBehaviour
 {
-    public GameObject KunaiEffectPrefab; // 마그넷 효과 프리팹
+    public Image MyImage;
+    public Sprite[] mySprites;
 
-    // 마그넷 기능을 활성화하는 메서드
-    public void Activatekunai()
+    private void Start()
     {
-        // 마그넷 효과를 생성하거나, 마그넷 관련 로직을 실행합니다.
-        Instantiate(KunaiEffectPrefab);
-
-        Debug.Log("Activatekunai activated!");
+        MyImage = GetComponent<Image>();
     }
+    private void Update()
+    {
+        if (GameManager.Instance.player.Weapons[0].WeaponLevel == 1)
+        {
+            MyImage.sprite = mySprites[0];
+        }
+        else if (GameManager.Instance.player.Weapons[0].WeaponLevel == 2)
+        {
+            MyImage.sprite = mySprites[1];
+        }
+        else if (GameManager.Instance.player.Weapons[0].WeaponLevel == 3)
+        {
+            MyImage.sprite = mySprites[2];
+        }
+
+    }
+
 }

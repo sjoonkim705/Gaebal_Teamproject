@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     public float LevelCount;
     public float expRequired;
 
-
+    public bool IsShieldOn;
+    public int SpeedUpCount;
     public int PlayerHealth;
     public int PlayerMaxHealth;
 
@@ -22,16 +23,19 @@ public class Player : MonoBehaviour
     public int PlayerLevel;
 
     public Item_UI itemUI;
-
-   
     private SpriteRenderer _playerSr = null;
     WeaponType WType;
     private const float DEFALT_PLAYER_SPEED = 5.0f;
-
     public Animator PlayerAnimator;
 
     Vector2 _dir;
 
+    public void IncreaseSpeed()
+    {
+        SpeedUpCount++;
+        Debug.Log("Speed UP");
+        Speed *= 1.1f;
+    }
     public void DecreasePlayerHealth(int amount)
     {
         if (amount <=0 || PlayerHealth <=0)
@@ -43,6 +47,7 @@ public class Player : MonoBehaviour
     }
     private void Awake()
     {
+        SpeedUpCount = 0;
         scanner = GetComponent<Scanner>();
         playerRigid = GetComponent<Rigidbody2D>();
         PlayerMaxHealth = 100;
@@ -58,7 +63,6 @@ public class Player : MonoBehaviour
 
         Speed = DEFALT_PLAYER_SPEED;
         _playerSr = GetComponent<SpriteRenderer>(); // playermove 좌우반전을 위한 spriterenderer
-
         PlayerAnimator = GetComponent<Animator>();
     }
 
