@@ -26,7 +26,7 @@ public class Item_shoes : MonoBehaviour
             Player player = playerObj.GetComponent<Player>();
             if (player != null)
             {
-                player.Speed += 10f;
+                player.Speed += 2f;
                 float maxSpeed = 10.0f; // 최대 이동 속도 설정
                 player.Speed = Mathf.Min(player.Speed, maxSpeed);
             }

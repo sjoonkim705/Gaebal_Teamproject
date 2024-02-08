@@ -25,7 +25,6 @@ public class Item_bomb : MonoBehaviour
             AudioManager.instance.PlaySfx(AudioManager.Sfx.Bomb);
 
             GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            Debug.Log(enemies.Length);
             for (int i = 0; i < enemies.Length; i++)
             {
                 Enemy enemy = enemies[i].GetComponent<Enemy>();
