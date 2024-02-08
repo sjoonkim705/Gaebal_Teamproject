@@ -57,11 +57,13 @@ public class GameManager : MonoBehaviour
                         itemUi.Select(3);*/
 
 
-             itemUi.Show();
-            itemUi.Select(Random.Range(0, itemUi.itemPrefabs.Length));
-
             itemUi.Show();
-            itemUi.Select(0);
+           
+            
+            //itemUi.Select(Random.Range(0, itemUi.itemPrefabs.Length));
+
+            //itemUi.Show();
+            //itemUi.Select(0);
 
 
 
