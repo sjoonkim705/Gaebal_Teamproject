@@ -24,7 +24,7 @@ public class GameManager : MonoBehaviour
     }
     void Start()
     {
-
+        GameOverImage = GetComponent<Image>();
 
         
 
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         Stop();
         
         GameOverUI.text = $"Game Over";
-
+        
     }
     
 

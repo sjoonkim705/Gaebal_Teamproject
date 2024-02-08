@@ -10,7 +10,7 @@ public class GameOver : MonoBehaviour
     public float interval = 0.2f;
     //private SpriteRenderer spriteRenderer;
     public Image StartImage;
-
+    
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class GameOver : MonoBehaviour
     }
 
 
-    IEnumerator SwitchSprites()
+    public IEnumerator SwitchSprites()
     {
         while (true)
         {
