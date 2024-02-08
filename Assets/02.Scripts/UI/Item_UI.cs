@@ -86,7 +86,7 @@ public class Item_UI : MonoBehaviour
         }
         else
         {
-            Debug.LogError("GameManager instance is null!");
+            Debug.Log("GameManager instance is null!");
         }
     }
 

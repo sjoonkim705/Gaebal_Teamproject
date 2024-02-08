@@ -24,7 +24,7 @@ public class Item_Shield : MonoBehaviour
 
     private void Start()
     {
-        this.gameObject.SetActive(false);
+        // this.gameObject.SetActive(false);
         Player ply = FindObjectOfType<Player>();
         this.transform.position = ply.transform.position;
         _dir.Normalize();
