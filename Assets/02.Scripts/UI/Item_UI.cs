@@ -56,7 +56,7 @@ public class Item_UI : MonoBehaviour
         {
             randomIndex1 = UnityEngine.Random.Range(0, 4);
             randomIndex2 = UnityEngine.Random.Range(0, 4);
-            if (GameManager.Instance.player.IsShieldOn == true && (randomIndex1 == 3 || randomIndex2 == 3))
+            if (GameManager.Instance.player.IsShieldOn == true && (randomIndex1 == 3 || randomIndex2 == 3)) // 쉴드on이면 3번 선택안됨
             {
                 continue;
             }
