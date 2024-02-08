@@ -44,6 +44,7 @@ public class Item_UI : MonoBehaviour
 
     public void Show()
     {
+        GameManager.Instance.Stop();
         rect.localScale = Vector3.one;
         Debug.Log("UI나오나?");
 
@@ -71,7 +72,7 @@ public class Item_UI : MonoBehaviour
         CardList[randomIndex2].gameObject.SetActive(true);
 
 
-        GameManager.Instance.Stop();
+
     }
     public void Hide()
     {
@@ -133,10 +134,11 @@ public class Item_UI : MonoBehaviour
                 case 3: // 쉴드
                     Item_Shield shieldItem = newItem.GetComponent<Item_Shield>(); // 수정
                     newItem.SetActive(true); // 수정
-                    Debug.Log("Shield Item spawned.");
+                    Debug.Log("Sheild Item spawned.");
                     break;
                 case 4: // 쿠나이 레벨업
-                    GameManager.Instance.player.Weapons[0].WeaponLevel += 1;
+                    GameManager.Instance.player.Weapons[0].GetLevelUPWeapon();
+
                     break;
 
                 default:

@@ -17,13 +17,9 @@ public class Player : MonoBehaviour
 
     public List<Weapon> Weapons;
 
-
-    public GameObject EnabledWeapon;
-
     private Rigidbody2D playerRigid;
 
     public int PlayerLevel;
-    private float _enemyCollisionTimer;
 
     public Item_UI itemUI;
 

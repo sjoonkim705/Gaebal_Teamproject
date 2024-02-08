@@ -34,6 +34,11 @@ public class Weapon : MonoBehaviour
     private int fireCount;
 
 
+    public void GetLevelUPWeapon()
+    {
+        WeaponLevel++;
+        Debug.Log($"WLevel= {WeaponLevel}");
+    }
 
     private void Awake()
     {
@@ -63,8 +68,7 @@ public class Weapon : MonoBehaviour
         {
             if (WeaponLevel <= MAX_WEAPON_LEVEL)
             {
-                WeaponLevel++;
-                Debug.Log($"WLevel= {WeaponLevel}");
+                GetLevelUPWeapon();
             }
         }
         if (WeaponLevel <= MAX_WEAPON_LEVEL)
