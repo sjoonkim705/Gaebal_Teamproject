@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/01.Scenes/jiniScenes.unity
+    guid: 3636004926398424293ed6b8d97ce466
+  - enabled: 0
     path: Assets/01.Scenes/JoonScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    guid: 1620a41950b0fd64f82e59b57287c3ce
   m_configObjects: {}

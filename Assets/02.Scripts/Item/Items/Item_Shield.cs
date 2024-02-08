@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
-using UnityEditor.Timeline.Actions;
 using UnityEngine;
 
 public class Item_Shield : MonoBehaviour
