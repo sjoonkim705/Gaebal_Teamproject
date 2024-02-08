@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Scripting;
 using UnityEngine.UI;
 
 public class GameOver : MonoBehaviour
@@ -12,18 +13,25 @@ public class GameOver : MonoBehaviour
     public Image StartImage;
     
 
+
     void Start()
     {
-        GameManager.Instance.Stop();
         StartImage = GetComponent<Image>();
+
+        //GameManager.Instance.Stop();
+        //StartImage = GetComponent<Image>();
         //spriteRenderer = GetComponent<SpriteRenderer>();
         StartCoroutine(SwitchSprites());
-
+    }
+    public void Aaa() 
+    {
+        
+        
+        
 
     }
 
-
-    public IEnumerator SwitchSprites()
+    IEnumerator SwitchSprites()
     {
         while (true)
         {
@@ -35,5 +43,13 @@ public class GameOver : MonoBehaviour
             StartImage.sprite = sprite2;
             yield return new WaitForSecondsRealtime(interval);
         }
+    }
+    public void ImageON()
+    {
+        StartImage.enabled = true;
+    }
+    public void ImageOFF()
+    {
+        StartImage.enabled = false;
     }
 }
